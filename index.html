@@ -110,6 +110,11 @@
       .book .memory-frame{min-height:0}
       .book .memory-frame img{min-height:0}
     }
+    /* Bingkai tetap pada wadah buku, bukan di dalam lembar yang digulir. */
+    .book-page:after{display:none}
+    .book:after{content:'';position:absolute;inset:18px;border:1px solid #e7d7b5;pointer-events:none;z-index:4;opacity:0}
+    .book[aria-expanded="true"]:after{opacity:1}
+    .book[aria-busy="true"]:after{opacity:0}
   </style>
 </head>
 <body class="cover-closed">
