@@ -195,6 +195,7 @@
         <form id="wishForm">
           <label for="wishName">Nama</label><input id="wishName" required minlength="2" maxlength="60" autocomplete="name">
           <label for="wishMessage">Ucapan untuk kami</label><textarea id="wishMessage" required minlength="3" maxlength="1000" rows="4"></textarea>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAGCBJkveueduFynO" data-action="wedding_wish" data-size="flexible"></div>
           <button class="open-invitation" id="wishSend" type="submit">Kirim ucapan ♡</button>
         </form>
         <p id="wishStatus" role="status">Menghubungkan buku tamu…</p>
@@ -388,5 +389,6 @@
 <noscript><style>#invitationContent[hidden],#footerText[hidden]{display:block!important}.open-invitation,.cover-caption{display:none}</style><p>Aktifkan JavaScript untuk musik dan buku interaktif.</p></noscript>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.js" defer></script>
 <script src="guestbook.js" defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </body>
 </html>

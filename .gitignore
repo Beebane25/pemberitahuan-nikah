@@ -1,0 +1,6 @@
+public/
+.wrangler/
+supabase/
+node_modules/
+.env*
+.dev.vars*

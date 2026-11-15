@@ -26,10 +26,13 @@
     if(name.length<2||message.length<3){status.textContent='Isi nama minimal 2 karakter dan ucapan minimal 3 karakter.';return;}
     send.disabled=true;status.textContent='Mengirim ucapan…';
     try{
-      const {error}=await db.from('wedding_wishes').insert({name,message});if(error)throw error;
+      const token=form.querySelector('[name="cf-turnstile-response"]')?.value;
+      if(!token)throw new Error('Selesaikan verifikasi keamanan terlebih dahulu.');
+      const response=await fetch('/api/wishes',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name,message,token})});
+      const result=await response.json();if(!response.ok)throw new Error(result.message||'Ucapan belum tersimpan.');
       form.reset();await load();status.textContent='Terima kasih, ucapan Anda sudah tersimpan ♡';
-    }catch{status.textContent='Ucapan belum tersimpan. Periksa koneksi lalu coba lagi.';}
-    finally{send.disabled=false;}
+    }catch(error){status.textContent=error.message||'Ucapan belum tersimpan. Periksa koneksi lalu coba lagi.';}
+    finally{send.disabled=false;if(window.turnstile)window.turnstile.reset();}
   });
   document.getElementById('wishRefresh').addEventListener('click',load);
   db.channel('public-wishes').on('postgres_changes',{event:'*',schema:'public',table:'wedding_wishes'},load).subscribe(state=>{if(state==='SUBSCRIBED')load();});
