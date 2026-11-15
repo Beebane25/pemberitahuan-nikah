@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f8fcfd" />
+  <meta name="description" content="Sebuah kabar bahagia tentang hari pernikahan kami." />
+  <title>Kabar Bahagia — Pernikahan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#183b59;--muted:#5d819b;--blue:#55b9e8;--sky:#dff5ff;--pale:#effaff;--line:#c8e8f5;--white:#fff;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f8fcfd;color:var(--ink);font-family:var(--sans);line-height:1.7}a{color:inherit}.wrap{width:min(1080px,calc(100% - 40px));margin:auto}.eyebrow{font-size:.7rem;letter-spacing:.23em;text-transform:uppercase;color:#7295a2;font-weight:700}.serif{font-family:var(--serif);font-weight:500}.hero{min-height:94vh;display:grid;place-items:center;padding:64px 0 76px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 15% 15%,#eaf5f8 0,transparent 34%),radial-gradient(ellipse at 90% 80%,#e5f1f5 0,transparent 34%),#fbfefe}.hero:before,.hero:after{content:'';position:absolute;border:1px solid #dcebf0;border-radius:50%;width:520px;height:520px;opacity:.65}.hero:before{left:-360px;top:8%}.hero:after{right:-380px;bottom:-15%}.hero-inner{position:relative;z-index:1;text-align:center;width:min(760px,100%)}.hero .eyebrow{margin-bottom:20px}.hero h1{font:500 clamp(3rem,8vw,6.2rem)/1.08 var(--serif);letter-spacing:-.045em;margin:0 0 16px}.hero h1 em{color:#79aaba;font-weight:500}.hero-sub{color:var(--muted);max-width:500px;margin:0 auto 34px;font-size:.98rem}.photo-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:min(560px,100%);margin:0 auto 30px}.photo{height:clamp(210px,36vw,340px);border-radius:170px 170px 18px 18px;overflow:hidden;background:linear-gradient(145deg,#eaf4f6,#d9e9ee);position:relative;border:7px solid #fff;box-shadow:0 16px 50px #456b7a12}.photo:nth-child(2){margin-top:34px}.photo img{width:100%;height:100%;object-fit:cover;display:block}.photo .placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:20px;color:#7797a3;font-size:.82rem}.photo .placeholder span{display:block;font-size:2rem;margin-bottom:8px}.couple-names{font:500 clamp(1.8rem,4vw,2.7rem) var(--serif);margin:0}.couple-names span{color:#8bb8c7;font-style:italic;padding:0 7px}.date-line{font-size:.82rem;letter-spacing:.16em;color:#78929c;margin-top:9px;text-transform:uppercase}.scroll-note{margin-top:40px;color:#91aab3;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase}.scroll-note:after{content:'↓';display:block;font-size:1.2rem;margin-top:4px}.section{padding:94px 0}.intro{text-align:center;max-width:690px;margin:auto}.intro h2,.section-heading{font:500 clamp(2rem,4.5vw,3.3rem)/1.2 var(--serif);margin:12px 0 18px}.intro p{color:var(--muted);margin:0 auto;max-width:610px}.soft{background:#f0f7f9}.details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}.detail{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px 22px;text-align:center}.detail .symbol{font-size:1.35rem;color:#8ab4c2}.detail h3{font:500 1.35rem var(--serif);margin:8px 0}.detail p{color:var(--muted);font-size:.9rem;margin:0}.detail small{display:block;color:#91a8b1;margin-top:8px}.note{margin:26px auto 0;text-align:center;color:#8098a2;font-size:.82rem}.story{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}.story-image{min-height:420px;border-radius:180px 180px 20px 20px;background:linear-gradient(145deg,#e7f2f5,#d5e8ed);overflow:hidden;position:relative}.story-image img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover}.story-image .placeholder{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#7898a4;padding:24px}.story-copy p{color:var(--muted)}.quote{font:italic 1.35rem/1.6 var(--serif);color:#527989;border-left:2px solid #9bc3cf;padding-left:20px;margin:28px 0}.closing{padding:100px 0;text-align:center;background:linear-gradient(180deg,#f0f7f9,#e7f2f5)}.closing h2{font:500 clamp(2.2rem,5vw,3.8rem)/1.2 var(--serif);margin:12px auto 18px;max-width:700px}.closing p{color:var(--muted);max-width:600px;margin:0 auto}.bank{width:min(510px,100%);margin:38px auto 0;background:#fff;border:1px solid #dce9ed;border-radius:18px;padding:25px;text-align:left;box-shadow:0 12px 40px #365b6810}.bank-top{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-bottom:14px}.bank-label{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8aa2ab}.bank-name{font-weight:700;font-size:1.05rem}.bank-number{font-size:1.2rem;letter-spacing:.08em;margin:5px 0;color:#345968}.bank-owner{font-size:.83rem;color:var(--muted)}.copy{border:1px solid #d6e6eb;background:#f4fafb;color:#527989;border-radius:30px;padding:9px 14px;font:600 .76rem var(--sans);cursor:pointer}.copy:hover{background:#eaf4f7}.thanks{margin-top:40px;font:italic 1.5rem var(--serif);color:#638b99}.footer{text-align:center;padding:24px;color:#9aafb6;font-size:.72rem;letter-spacing:.08em;background:#f8fcfd}
+    body,.footer{background:#f3fbff}.hero{background:radial-gradient(ellipse at 15% 15%,#a9e3ff 0,transparent 52%),radial-gradient(ellipse at 90% 80%,#c0edff 0,transparent 45%),#f0fbff}.soft{background:#e2f5ff}.closing{background:linear-gradient(180deg,#e5f7ff,#bee9ff)}.hero h1 em,.couple-names span{color:#2786b5}.eyebrow,.date-line,.detail small,.note,.bank-label,.footer{color:#48758e}.detail .symbol{color:#299ed3}.quote,.thanks{color:#297ba4}.book:focus-visible{outline:3px solid #207ca9;outline-offset:8px}[hidden]{display:none!important}
+    @keyframes floatIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes drift{0%,100%{transform:translate3d(0,0,0) rotate(0deg)}50%{transform:translate3d(0,-12px,0) rotate(1deg)}}
+    @keyframes shimmer{0%{transform:translateX(-120%) rotate(16deg)}100%{transform:translateX(220%) rotate(16deg)}}
+    @keyframes pulseGlow{0%,100%{box-shadow:0 16px 50px #55b9e833}50%{box-shadow:0 20px 65px #55b9e866}}
+    .hero-inner,.intro,.detail,.story-image,.story-copy,.closing .wrap{animation:floatIn .9s both ease-out}
+    .hero:before{animation:drift 9s ease-in-out infinite}.hero:after{animation:drift 11s ease-in-out infinite reverse}
+    .photo{animation:pulseGlow 4s ease-in-out infinite}.photo-pair .photo:first-child{animation-delay:.35s}.photo-pair .photo:nth-child(2){animation-delay:1s}
+    .photo:after{content:'';position:absolute;inset:-40% auto -40% -70%;width:45%;background:#fff8;filter:blur(14px);transform:rotate(16deg);animation:shimmer 5.5s ease-in-out infinite;pointer-events:none}
+    .detail{transition:transform .35s ease,box-shadow .35s ease}.detail:hover{transform:translateY(-8px);box-shadow:0 18px 35px #55b9e833}
+    .story-image{box-shadow:0 18px 55px #55b9e833;transition:transform .45s ease}.story-image:hover{transform:rotate(-1.5deg) scale(1.015)}
+    .love-story{background:linear-gradient(145deg,#dff5ff,#f8fdff);text-align:center;padding:98px 0 110px;overflow:hidden}.love-story h2{font:500 clamp(2.4rem,6vw,4.6rem)/1.1 var(--serif);color:#1c5878;margin:10px 0}.love-story-sub{color:var(--muted);max-width:560px;margin:0 auto 34px}.book-wrap{width:min(760px,100%);margin:auto;perspective:1800px}.book{position:relative;min-height:360px;cursor:pointer;transform-style:preserve-3d;transition:transform .8s ease}.book.is-open{transform:rotateY(-8deg)}.book-cover,.book-page{position:absolute;inset:0;border-radius:8px 18px 18px 8px;box-shadow:0 20px 45px #2767832b}.book-cover{z-index:3;display:grid;place-items:center;padding:30px;background:linear-gradient(135deg,#4bb9e9,#bcefff);color:#fff;transform-origin:left center;backface-visibility:hidden;transition:transform 1s cubic-bezier(.2,.75,.2,1);border:5px solid #fff}.book.is-open .book-cover{transform:rotateY(-168deg)}.book-cover-inner{border:1px solid #ffffff99;padding:38px 28px;border-radius:5px}.book-cover h3{font:500 clamp(1.8rem,5vw,3rem) var(--serif);margin:8px 0}.book-cover p{margin:0;letter-spacing:.15em;text-transform:uppercase;font-size:.7rem}.book-page{padding:40px 48px;background:#fffdf4;color:#496777;text-align:left;transform:translateZ(-1px);background-image:linear-gradient(#fffdf4,#fffaf0)}.book-page:after{content:'';position:absolute;inset:18px;border:1px solid #e7d7b5;pointer-events:none}.book-page h3{position:relative;font:500 2rem var(--serif);color:#315e72;margin:0 0 18px}.book-page p{position:relative;max-width:600px;margin:0;font-family:var(--serif);font-size:1.05rem;line-height:2;color:#667d87}.book-hint{margin-top:20px;color:#6795ac;font-size:.78rem;letter-spacing:.08em}.book-flower{position:absolute;right:35px;bottom:20px;color:#6fc6e8;font-size:2.3rem;z-index:1}
+    @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+    @media(max-width:700px){.wrap{width:min(100% - 30px,560px)}.hero{min-height:auto;padding:70px 0 60px}.photo-pair{gap:9px}.photo{height:230px;border-width:5px}.photo:nth-child(2){margin-top:24px}.section{padding:70px 0}.details-grid{grid-template-columns:1fr;gap:12px}.detail{padding:22px}.story{grid-template-columns:1fr;gap:30px}.story-image{min-height:360px;max-width:430px;width:100%;margin:auto}.closing{padding:75px 0}.bank{padding:21px}.love-story{padding:72px 0}.book{min-height:430px}.book-page{padding:34px 28px}.book-page p{font-size:.95rem}}
+    /* Gerakan mengikuti scroll, berulang saat naik maupun turun. */
+    .scroll-motion{translate:0 var(--scroll-y,0px)}
+    @media(prefers-reduced-motion:reduce){.scroll-motion{translate:none!important}}
+
+    /* Desktop: foto kiri / buku kanan. Ponsel: foto di atas buku. */
+    .story-book-layout{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:42px;align-items:center;margin-top:45px}
+    .story-book-layout .story-image{width:100%;height:530px;min-height:0}
+    .story-book-layout .book-wrap{min-width:0}
+    .story-book-layout .book{min-height:570px}
+    .book-page{padding:38px 32px}
+    .book-page .story-copy{animation:none}
+    .book-page .section-heading{font-size:clamp(1.65rem,2.5vw,2.1rem);margin:12px 0 18px}
+    .book-page .quote{font-size:1.1rem;line-height:1.6;margin:20px 0 0;padding-left:15px}
+    .book-page p{font-size:1rem;line-height:1.9}
+    .book-page .eyebrow{font-size:.65rem}
+    @media(max-width:700px){
+      .story-book-layout{grid-template-columns:minmax(0,1fr);gap:42px;margin-top:32px}
+      .story-book-layout .story-image{height:400px;max-width:430px}
+      .story-book-layout .book{min-height:620px}
+      .book-page{padding:32px 28px}
+    }
+    /* Lembaran berputar pada punggung buku, bukan sekadar fade. */
+    .book{perspective:1600px;isolation:isolate}
+    .book-cover,.book-page{transform-origin:left center;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+    .book-cover{transition:none;z-index:3}
+    .book-page{transform:none}
+    .book[aria-busy="true"]{cursor:progress}
+    /* Reveal berulang; tidak menyentuh lembar atau isi buku. */
+    .hero-inner,.intro,.detail,.story-image,.story-copy,.closing .wrap{animation:none}
+    .rise-reveal{opacity:0;translate:0 calc(var(--scroll-y,0px) + 38px);transition:opacity .75s ease,translate .85s cubic-bezier(.22,1,.36,1);}
+    .rise-reveal.is-visible{opacity:1;translate:0 var(--scroll-y,0px)}
+    @media(prefers-reduced-motion:reduce){.rise-reveal{opacity:1;translate:none!important;transition:none!important}}
+    /* Foto sampul; judul tetap terlihat di area langit. */
+    .book-cover{background:linear-gradient(180deg,rgba(12,48,78,.55),rgba(12,48,78,.18) 52%,transparent 75%),url('./cover%20depan%20buku.jpg') center center / cover no-repeat;align-items:start;padding:30px 22px}
+    .book-cover-inner{position:relative;width:100%;padding:24px 12px;color:#fff;text-shadow:0 2px 8px #103552aa}
+    .book-cover-inner h3{color:#fff}
+    /* Foto menjadi lembar penutup; buku berdiri sendiri di tengah. */
+    .story-book-layout{display:block;max-width:560px;margin:45px auto 0}
+    .photo-ending{padding:35px 30px;display:flex;flex-direction:column;gap:20px}
+    .memory-frame{margin:0;flex:1;min-height:0;display:flex;flex-direction:column;background:white;padding:12px;box-shadow:0 8px 24px #183b5920;transform:rotate(-1deg)}
+    .memory-frame img{width:100%;flex:1;min-height:0;object-fit:contain;background:#eef8fc}
+    .memory-frame figcaption{padding:16px 0 6px;text-align:center;font:italic 1rem var(--serif);color:#315e72}
+    @media(max-width:700px){.photo-ending{padding:30px 25px}.story-book-layout{margin-top:32px}}
+    /* Jarak label dan judul pada halaman ucapan syukur. */
+    #lastChapter .story-copy > .eyebrow{display:block;line-height:1.8;margin:0 0 28px}
+    #lastChapter .story-copy > .section-heading{margin:0 0 24px;line-height:1.3}
+    .music-toggle{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:1000;border:1px solid #9bd9f4;border-radius:30px;padding:12px 18px;background:#f2fbfff5;color:#194c69;box-shadow:0 6px 24px #183b5926;font:600 .8rem var(--sans);cursor:pointer;min-height:44px}
+    .music-toggle:focus-visible{outline:3px solid #2786b5;outline-offset:4px}
+    .footer{padding-bottom:90px}
+  </style>
+</head>
+<body>
+  <audio id="weddingMusic" src="payung%20teduh%20-%20akad.mp3" autoplay loop preload="auto"></audio>
+  <button class="music-toggle" id="musicToggle" type="button" aria-label="Putar musik Payung Teduh — Akad" aria-pressed="false">♫ Putar musik</button>
+  <header class="hero">
+    <div class="wrap hero-inner">
+      <div class="eyebrow">A little note from our hearts</div>
+      <h1>We said <em>yes</em>,<br>to forever.</h1>
+      <p class="hero-sub" id="heroMessage">Dengan penuh rasa syukur, kami ingin berbagi kabar bahagia tentang perjalanan baru yang telah kami mulai.</p>
+      <div class="photo-pair">
+        <div class="photo"><img id="photoOne" src="" alt="Foto pasangan pertama" hidden><div class="placeholder" id="placeholderOne"></div></div>
+        <div class="photo"><img id="photoTwo" src="" alt="Foto pasangan kedua" hidden><div class="placeholder" id="placeholderTwo"></div></div>
+      </div>
+      <p class="couple-names"><span id="nameOne">Zulfajri Surya</span><span>&</span><span id="nameTwo">Farah Dila Oktavia</span></p>
+      <div class="date-line" id="heroDate">Jum'at · 27 November 2027</div>
+      <div class="scroll-note">A little more about our day</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="wrap intro">
+        <div class="eyebrow">The beginning of our forever</div>
+        <h2 class="serif">Sebuah kabar, dari hati kami.</h2>
+        <p id="announcement">Dengan bahagia, kami ingin mengabarkan bahwa kami telah resmi mengikat janji dalam ikatan pernikahan. Hari istimewa ini kami rayakan secara intimate bersama keluarga dan orang-orang terdekat. Meski sederhana, doa dan kebahagiaan dari Anda tetap berarti bagi kami.</p>
+      </div>
+    </section>
+
+    <section class="section soft" id="details">
+      <div class="wrap">
+        <div class="intro">
+          <div class="eyebrow">A day to remember</div>
+          <h2 class="section-heading">Hari yang menjadi awal cerita.</h2>
+          <p>Beberapa detail kecil tentang hari bahagia kami.</p>
+        </div>
+        <div class="details-grid">
+          <article class="detail"><div class="symbol">◷</div><h3>Tanggal</h3><p id="detailDate">Jum'at, 27 November 2027</p><small id="detailTime">09:00 WIB</small></article>
+          <article class="detail"><div class="symbol">⌖</div><h3>Tempat</h3><p id="venue">Mesjid Jabal Arafah</p><small id="address">Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau</small></article>
+          <article class="detail"><div class="symbol">♡</div><h3>Perayaan</h3><p id="ceremony">Akad & intimate celebration</p><small id="attendees">Bersama keluarga dan orang terdekat</small></article>
+        </div>
+        <p class="note" id="privateNote">Momen ini kami rayakan secara tertutup dalam lingkup keluarga dan orang-orang terdekat.</p>
+      </div>
+    </section>
+
+    <section class="love-story" aria-labelledby="loveStoryTitle">
+      <div class="wrap">
+        <div class="eyebrow">A chapter written by two hearts</div>
+        <h2 id="loveStoryTitle">The love story begins</h2>
+        <p class="love-story-sub">Klik sampul buku di bawah ini untuk membuka kisah kecil tentang perjalanan Zulfajri dan Dila.</p>
+        <div class="story-book-layout">
+
+        <div class="book-wrap">
+          <div class="book" id="loveBook" role="button" tabindex="0" aria-label="Buka buku kisah cinta" aria-expanded="false">
+            <div class="book-page" id="firstChapter">
+              <h3>Awal dari selamanya</h3>
+              <p>Setiap kisah indah dimulai dari sebuah pertemuan sederhana. Dari sapaan yang perlahan menjadi perhatian, lalu tumbuh menjadi rasa yang ingin dijaga. Zulfajri dan Dila memilih untuk berjalan bersama—saling menguatkan, saling memahami, dan menulis lembaran baru dengan penuh syukur.</p>
+              <div class="book-flower">✦</div>
+            </div>
+            <div class="book-page gratitude-page" id="lastChapter" hidden>
+        <div class="story-copy">
+          <div class="eyebrow">A note of gratitude</div>
+          <h2 class="section-heading">Hal sederhana yang terasa begitu berarti.</h2>
+          <p id="storyText">Perjalanan ini membawa kami pada satu keputusan indah: berjalan berdampingan, saling menjaga, dan bertumbuh bersama. Kami memilih merayakannya dengan sederhana, dekat dengan keluarga, dan penuh rasa syukur.</p>
+          <div class="quote" id="quote">“Pada akhirnya, rumah adalah seseorang yang ingin kita tuju, setiap hari.”</div>
+        </div>
+            </div>
+            <div class="book-page photo-ending" id="photoChapter" hidden>
+              <div class="eyebrow">Our favorite memory</div>
+              <figure class="memory-frame">
+                <img id="storyPhoto" src="foto favorit.jpg" alt="Foto kenangan favorit Zulfajri dan Dila">
+                <figcaption>Zulfajri &amp; Dila · Selamanya bersama</figcaption>
+              </figure>
+            </div>
+            <div class="book-cover">
+              <div class="book-cover-inner"><p>Our little story</p><h3>The love story begins</h3><p>Zulfajri &amp; Dila</p></div>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="book-hint" id="bookHint" aria-live="polite">Sentuh atau klik buku untuk membalik halaman ✦</div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="wrap">
+        <div class="eyebrow">With love & gratitude</div>
+        <h2>Terima kasih telah menjadi bagian dari cerita kami.</h2>
+        <p id="closingText">Kami tidak mengadakan undangan terbuka, tetapi ingin membagikan kabar bahagia ini kepada orang-orang yang berarti dalam hidup kami. Doa baik dan harapan tulus dari Anda akan menjadi hadiah yang sangat berharga.</p>
+        <div class="bank">
+          <div class="bank-top"><div><div class="bank-label">A little wedding gift · optional</div><div class="bank-name" id="bankName">Mandiri</div></div><div class="symbol">♡</div></div>
+          <div class="bank-number" id="accountNumber">1090020727244</div>
+          <div class="bank-owner" id="accountOwner">a.n. ZULFAJRI SURYA</div>
+          <div style="display:flex;justify-content:flex-end;margin-top:16px"><button class="copy" id="copyButton" type="button">Salin nomor rekening</button></div>
+        </div>
+        <div class="thanks" id="finalThanks">Dengan kasih, Zulfajri Surya & Farah Dila Oktavia </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" id="footerText">A new chapter begins · 2027</footer>
+
+  <script>
+    /* =========================================================
+       EDIT BAGIAN INI SAJA — ganti teks di dalam tanda kutip.
+       Foto: simpan file foto di folder yang sama dengan HTML,
+       lalu isi misalnya "foto-berdua.jpg" pada photoOne/photoTwo.
+       ========================================================= */
+    const wedding = {
+      nameOne: "Zulfajri Surya",
+      nameTwo: "Farah Dila Oktavia",
+      dateShort: "Jum'at · 27 November 2027",
+      dateLong: "Jum'at, 27 November 2027",
+      time: "09:00 WIB",
+      venue: "Mesjid Jabal Arafah",
+      address: "Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau",
+      ceremony: "Akad & intimate celebration",
+      attendees: "Bersama keluarga dan orang terdekat",
+      heroMessage: "Dengan penuh rasa syukur, kami ingin berbagi kabar bahagia tentang perjalanan baru yang telah kami mulai.",
+      announcement: "Dengan bahagia, kami ingin mengabarkan bahwa kami telah resmi mengikat janji dalam ikatan pernikahan. Hari istimewa ini kami rayakan secara intimate bersama keluarga dan orang-orang terdekat. Meski sederhana, doa dan kebahagiaan dari Anda tetap berarti bagi kami.",
+      privateNote: "Momen ini kami rayakan secara tertutup dalam lingkup keluarga dan orang-orang terdekat.",
+      storyText: "Perjalanan ini membawa kami pada satu keputusan indah: berjalan berdampingan, saling menjaga, dan bertumbuh bersama. Kami memilih merayakannya dengan sederhana, dekat dengan keluarga, dan penuh rasa syukur.",
+      quote: "“Pada akhirnya, rumah adalah seseorang yang ingin kita tuju, setiap hari.”",
+      closingText: "Kami tidak mengadakan undangan terbuka, tetapi ingin membagikan kabar bahagia ini kepada orang-orang yang berarti dalam hidup kami. Doa baik dan harapan tulus dari Anda akan menjadi hadiah yang sangat berharga.",
+      bankName: "Mandiri",
+      accountNumber: "1090020727244",
+      accountOwner: "a.n. ZULFAJRI SURYA",
+      photoOne: "profil cowok.jpg",
+      photoTwo: "profil cewek.jpg",
+      storyPhoto: "foto favorit.jpg",
+      footerText: "A new chapter begins · 2027"
+    };
+    const fields = ["nameOne","nameTwo","dateShort","dateLong","time","venue","address","ceremony","attendees","heroMessage","announcement","privateNote","storyText","quote","closingText","bankName","accountNumber","accountOwner","footerText"];
+    fields.forEach(key => { const el=document.getElementById(key === "dateShort" ? "heroDate" : key === "dateLong" ? "detailDate" : key); if(el) el.textContent=wedding[key]; });
+    document.getElementById("detailTime").textContent=wedding.time;
+    document.getElementById("finalThanks").textContent=`Dengan kasih, ${wedding.nameOne} & ${wedding.nameTwo}`;
+    function setPhoto(id, placeholderId, src){ if(!src) return; const img=document.getElementById(id); img.src=src; img.hidden=false; const placeholder=document.getElementById(placeholderId); if(placeholder) placeholder.hidden=true; }
+    setPhoto("photoOne","placeholderOne",wedding.photoOne);
+    setPhoto("photoTwo","placeholderTwo",wedding.photoTwo);
+    setPhoto("storyPhoto","storyPlaceholder",wedding.storyPhoto);
+    document.getElementById("copyButton").addEventListener("click", async () => {
+      const button=document.getElementById("copyButton");
+      try { await navigator.clipboard.writeText(wedding.accountNumber.replace(/\s/g,"")); button.textContent="Berhasil disalin ✓"; }
+      catch { button.textContent="Salin manual: " + wedding.accountNumber; }
+      setTimeout(()=>button.textContent="Salin nomor rekening",2200);
+    });
+    const loveBook = document.getElementById('loveBook');
+    let bookStep=0, bookBusy=false;
+    const cover=loveBook.querySelector('.book-cover');
+    const first=document.getElementById('firstChapter');
+    const last=document.getElementById('lastChapter');
+    const photoPage=document.getElementById('photoChapter');
+    async function toggleBook(event){
+      if(bookBusy || (event && event.type==='click' && event.detail>1)) return;
+      bookBusy=true;
+      loveBook.setAttribute('aria-busy','true');
+      const next=(bookStep+1)%4;
+      const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const duration=reduced?0:1100;
+      let animation;
+      try {
+        if(bookStep===0){
+          first.hidden=false; last.hidden=true; photoPage.hidden=true;
+          animation=cover.animate([{transform:'rotateY(0deg)'},{transform:'rotateY(-180deg)'}],{duration,easing:'cubic-bezier(.45,0,.2,1)',fill:'forwards'});
+        } else if(bookStep===1 || bookStep===2){
+          const outgoing=bookStep===1?first:last;
+          const incoming=bookStep===1?last:photoPage;
+          incoming.hidden=false;
+          outgoing.style.zIndex='2';
+          animation=outgoing.animate([
+            {transform:'rotateY(0deg)',boxShadow:'0 4px 12px #183b5920'},
+            {transform:'rotateY(-85deg)',boxShadow:'25px 12px 45px #183b5955',offset:.55},
+            {transform:'rotateY(-180deg)',boxShadow:'0 0 0 transparent'}
+          ],{duration,easing:'cubic-bezier(.45,0,.2,1)',fill:'forwards'});
+        } else {
+          animation=cover.animate([{transform:'rotateY(-180deg)'},{transform:'rotateY(0deg)'}],{duration,easing:'cubic-bezier(.45,0,.2,1)',fill:'forwards'});
+        }
+        await animation.finished;
+        bookStep=next;
+      } finally {
+        cover.style.transform=bookStep===0?'rotateY(0deg)':'rotateY(-180deg)';
+        first.hidden=bookStep>1;
+        last.hidden=bookStep!==2;
+        photoPage.hidden=bookStep!==3;
+        first.style.zIndex='';
+        last.style.zIndex='';
+        if(animation) animation.cancel();
+        loveBook.setAttribute('aria-expanded',String(bookStep>0));
+        loveBook.setAttribute('aria-label',['Buka buku kisah cinta','Buka ucapan syukur','Buka halaman foto kenangan','Tutup buku kisah cinta'][bookStep]);
+        document.getElementById('bookHint').textContent=['Klik untuk membuka buku ✦','Halaman 1 / 3 · Klik untuk membaca ucapan syukur →','Halaman 2 / 3 · Klik untuk melihat foto kenangan →','Halaman 3 / 3 · Klik untuk menutup buku ♡'][bookStep];
+        loveBook.setAttribute('aria-busy','false');
+        bookBusy=false;
+      }
+    }
+    loveBook.addEventListener('click',toggleBook);
+    loveBook.addEventListener('keydown',event=>{
+      if(event.key==='Enter'||event.key===' '){event.preventDefault();if(!event.repeat) toggleBook(event);}
+    });
+    // Scroll motion: posisi dasar disimpan agar tidak terjadi feedback transform.
+    (() => {
+      const preference = matchMedia('(prefers-reduced-motion: reduce)');
+      const items = [...document.querySelectorAll('.hero h1,.hero-sub,.photo-pair,.couple-names,.intro,.detail,.story-image,.love-story h2,.love-story-sub,.book-wrap,.closing h2,.closing > .wrap > p,.bank,.thanks')].map((el,i)=>({el,top:0,height:0,range:i%3===0?28:18}));
+      let pending = false;
+      function paint(){
+        pending=false;
+        const vh=window.innerHeight;
+        const values=items.map(item=>{
+          const progress=Math.max(-1,Math.min(1,(item.top+item.height/2-window.scrollY-vh/2)/(vh/2+item.height/2)));
+          return preference.matches ? 0 : progress*item.range;
+        });
+        items.forEach((item,i)=>item.el.style.setProperty('--scroll-y',values[i].toFixed(2)+'px'));
+      }
+      function schedule(){if(!pending){pending=true;requestAnimationFrame(paint);}}
+      function measure(){
+        items.forEach(({el})=>{el.classList.add('scroll-motion');el.style.setProperty('--scroll-y','0px');});
+        items.forEach(item=>{const rect=item.el.getBoundingClientRect();item.top=rect.top+window.scrollY;item.height=rect.height;});
+        schedule();
+      }
+      window.addEventListener('scroll',schedule,{passive:true});
+      window.addEventListener('resize',measure);
+      window.addEventListener('load',()=>setTimeout(measure,1100));
+      preference.addEventListener('change',measure);
+      if(document.fonts) document.fonts.ready.then(measure);
+      measure();
+    })();
+    // Reveal dari bawah untuk konten di luar buku saja.
+    (() => {
+      if(!('IntersectionObserver' in window)) return;
+      const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+      const selector='.eyebrow,h1,h2,.hero-sub,.photo-pair,.couple-names,.date-line,.scroll-note,.intro > p,.detail,.note,.story-image,.love-story-sub,.book-hint,.closing > .wrap > p,.bank,.thanks,.footer';
+      const candidates=[...document.querySelectorAll(selector)].filter(el=>!el.closest('.book'));
+      const elements=candidates.filter(el=>!candidates.some(parent=>parent!==el && parent.contains(el)));
+      const observer=new IntersectionObserver(entries=>{
+        entries.forEach(({target,isIntersecting})=>target.classList.toggle('is-visible',isIntersecting));
+      },{threshold:0,rootMargin:'0px 0px -25px 0px'});
+      function configure(){
+        observer.disconnect();
+        elements.forEach(el=>{
+          el.classList.toggle('rise-reveal',!reduced.matches);
+          el.classList.remove('is-visible');
+          if(!reduced.matches) observer.observe(el);
+        });
+      }
+      reduced.addEventListener('change',configure);
+      configure();
+    })();
+    // Autoplay bersuara bergantung izin browser; coba lagi saat interaksi pertama.
+    (() => {
+      const audio=document.getElementById('weddingMusic');
+      const button=document.getElementById('musicToggle');
+      let userPaused=false, pending=false;
+      audio.volume=0.45;
+      function update(){
+        const playing=!audio.paused;
+        button.textContent=playing?'♫ Jeda musik':'♫ Putar musik';
+        button.setAttribute('aria-pressed',String(playing));
+        button.setAttribute('aria-label',(playing?'Jeda':'Putar')+' musik Payung Teduh — Akad');
+      }
+      async function start(){
+        if(pending || userPaused || !audio.paused) return;
+        pending=true;
+        try { await audio.play(); } catch { update(); } finally {pending=false;}
+      }
+      function unlock(event){
+        if(button.contains(event.target)) return;
+        if(event.type==='keydown' && !['Enter',' '].includes(event.key)) return;
+        start();
+      }
+      function removeUnlock(){
+        document.removeEventListener('click',unlock);
+        document.removeEventListener('keydown',unlock);
+      }
+      document.addEventListener('click',unlock);
+      document.addEventListener('keydown',unlock);
+      audio.addEventListener('play',()=>{update();removeUnlock();});
+      audio.addEventListener('pause',update);
+      audio.addEventListener('error',()=>{button.textContent='Musik tidak tersedia';button.disabled=true;removeUnlock();});
+      button.addEventListener('click',()=>{
+        if(!audio.paused){userPaused=true;audio.pause();}
+        else {userPaused=false;start();}
+      });
+      start();
+    })();
+  </script>  
+</body>
+</html>
