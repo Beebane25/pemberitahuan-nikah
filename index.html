@@ -75,12 +75,23 @@
     .music-toggle{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom));z-index:1000;border:1px solid #9bd9f4;border-radius:30px;padding:12px 18px;background:#f2fbfff5;color:#194c69;box-shadow:0 6px 24px #183b5926;font:600 .8rem var(--sans);cursor:pointer;min-height:44px}
     .music-toggle:focus-visible{outline:3px solid #2786b5;outline-offset:4px}
     .footer{padding-bottom:90px}
+    .cover-closed .music-toggle{display:none}
+    .cover-closed .hero{min-height:100svh}
+    .open-invitation{margin-top:22px;padding:16px 26px;border:1px solid #337c9f;border-radius:40px;background:#205f80;color:white;font:600 .9rem var(--sans);cursor:pointer;box-shadow:0 8px 24px #205f8024;transition:background .2s,transform .2s}
+    .open-invitation:hover{background:#174965;transform:translateY(-2px)}
+    .open-invitation span{margin-left:18px}
+    .open-invitation:focus-visible{outline:3px solid #2786b5;outline-offset:5px}
+    .cover-caption{font-size:.72rem;color:#48758e;margin:12px 0 0}
+    #invitationContent:focus{outline:none}
+    .cover-closed .hero .rise-reveal{opacity:1;translate:none}
+    @media(max-width:700px){.cover-closed .hero{padding:40px 0 32px}.cover-closed .scroll-note{margin-top:24px}}
+    noscript p{text-align:center;padding:24px}
   </style>
 </head>
-<body>
-  <audio id="weddingMusic" src="payung%20teduh%20-%20akad.mp3" autoplay loop preload="auto"></audio>
+<body class="cover-closed">
+  <audio id="weddingMusic" src="payung%20teduh%20-%20akad.mp3" loop preload="auto"></audio>
   <button class="music-toggle" id="musicToggle" type="button" aria-label="Putar musik Payung Teduh — Akad" aria-pressed="false">♫ Putar musik</button>
-  <header class="hero">
+  <header class="hero" id="welcomeCover">
     <div class="wrap hero-inner">
       <div class="eyebrow">A little note from our hearts</div>
       <h1>We said <em>yes</em>,<br>to forever.</h1>
@@ -92,10 +103,12 @@
       <p class="couple-names"><span id="nameOne">Zulfajri Surya</span><span>&</span><span id="nameTwo">Farah Dila Oktavia</span></p>
       <div class="date-line" id="heroDate">Jum'at · 27 November 2027</div>
       <div class="scroll-note">A little more about our day</div>
+      <button type="button" class="open-invitation" id="openInvitation" aria-controls="invitationContent">Buka Kabar Bahagia <span aria-hidden="true">↗</span></button>
+      <p class="cover-caption">Buka untuk membaca cerita kami · dengan musik</p>
     </div>
   </header>
 
-  <main>
+  <main id="invitationContent" tabindex="-1" hidden>
     <section class="section">
       <div class="wrap intro">
         <div class="eyebrow">The beginning of our forever</div>
@@ -174,7 +187,7 @@
       </div>
     </section>
   </main>
-  <footer class="footer" id="footerText">A new chapter begins · 2027</footer>
+  <footer hidden class="footer" id="footerText">A new chapter begins · 2027</footer>
 
   <script>
     /* =========================================================
@@ -320,11 +333,12 @@
       reduced.addEventListener('change',configure);
       configure();
     })();
-    // Autoplay bersuara bergantung izin browser; coba lagi saat interaksi pertama.
+    // Play dipanggil langsung dari klik pembuka agar memperoleh izin browser.
     (() => {
       const audio=document.getElementById('weddingMusic');
       const button=document.getElementById('musicToggle');
-      let userPaused=false, pending=false;
+      const openButton=document.getElementById('openInvitation');
+      let opened=false;
       audio.volume=0.45;
       function update(){
         const playing=!audio.paused;
@@ -332,31 +346,29 @@
         button.setAttribute('aria-pressed',String(playing));
         button.setAttribute('aria-label',(playing?'Jeda':'Putar')+' musik Payung Teduh — Akad');
       }
-      async function start(){
-        if(pending || userPaused || !audio.paused) return;
-        pending=true;
-        try { await audio.play(); } catch { update(); } finally {pending=false;}
+      function play(){
+        const promise=audio.play();
+        if(promise) promise.catch(()=>{update();button.textContent='♫ Ketuk untuk putar musik';});
       }
-      function unlock(event){
-        if(button.contains(event.target)) return;
-        if(event.type==='keydown' && !['Enter',' '].includes(event.key)) return;
-        start();
-      }
-      function removeUnlock(){
-        document.removeEventListener('click',unlock);
-        document.removeEventListener('keydown',unlock);
-      }
-      document.addEventListener('click',unlock);
-      document.addEventListener('keydown',unlock);
-      audio.addEventListener('play',()=>{update();removeUnlock();});
+      audio.addEventListener('play',update);
       audio.addEventListener('pause',update);
-      audio.addEventListener('error',()=>{button.textContent='Musik tidak tersedia';button.disabled=true;removeUnlock();});
-      button.addEventListener('click',()=>{
-        if(!audio.paused){userPaused=true;audio.pause();}
-        else {userPaused=false;start();}
+      audio.addEventListener('error',()=>{button.textContent='Musik tidak tersedia';button.disabled=true;});
+      button.addEventListener('click',()=>{if(audio.paused) play();else audio.pause();});
+      openButton.addEventListener('click',()=>{
+        if(opened) return;
+        opened=true;
+        play();
+        document.body.classList.remove('cover-closed');
+        document.getElementById('welcomeCover').hidden=true;
+        const main=document.getElementById('invitationContent');
+        main.hidden=false;
+        document.getElementById('footerText').hidden=false;
+        main.focus({preventScroll:true});
+        window.scrollTo({top:0,behavior:'instant'});
+        window.dispatchEvent(new Event('resize'));
       });
-      start();
     })();
   </script>  
+<noscript><style>#invitationContent[hidden],#footerText[hidden]{display:block!important}.open-invitation,.cover-caption{display:none}</style><p>Aktifkan JavaScript untuk musik dan buku interaktif.</p></noscript>
 </body>
 </html>
