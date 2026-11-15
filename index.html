@@ -101,6 +101,15 @@
     .book .narrative-page,.book .gratitude-page{min-height:var(--paper-height,560px)}
     .story-book-layout .book{transition:none}
     #lastChapter .story-copy > p + p{margin-top:16px}
+    /* Tinggi buku khusus ponsel: 5 CSS inch = 480 CSS px. */
+    @media(max-width:700px){
+      .story-book-layout .book{height:5in!important;min-height:5in;max-height:5in}
+      .book .book-page,.book .book-cover{height:5in;min-height:5in;max-height:5in;bottom:0;box-sizing:border-box}
+      .book .narrative-page,.book .gratitude-page{overflow-y:auto;overscroll-behavior-y:contain;scrollbar-width:thin;padding:28px 25px 32px}
+      .book .photo-ending{overflow:hidden;padding:25px}
+      .book .memory-frame{min-height:0}
+      .book .memory-frame img{min-height:0}
+    }
   </style>
 </head>
 <body class="cover-closed">
