@@ -86,6 +86,7 @@
     .cover-closed .hero .rise-reveal{opacity:1;translate:none}
     @media(max-width:700px){.cover-closed .hero{padding:40px 0 32px}.cover-closed .scroll-note{margin-top:24px}}
     noscript p{text-align:center;padding:24px}
+    .wishes{background:#effaff}.wishes label{display:block;margin:18px 0 6px;font-size:.9rem}.wishes input,.wishes textarea{width:100%;font:inherit;color:var(--ink);padding:12px;border:1px solid #afd5e8;border-radius:10px;background:#fff}.wishes input:focus,.wishes textarea:focus{outline:2px solid #2786b5}.wish-entry{margin:18px 0;padding:20px 22px;border-left:3px solid #73bbde;background:white;border-radius:0 12px 12px 0}.wish-entry p{white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0}.wish-entry time{font-size:.72rem;color:#48758e}#wishStatus{font-size:.85rem}#wishSend:disabled{opacity:.6;cursor:wait}
   </style>
 </head>
 <body class="cover-closed">
@@ -184,6 +185,21 @@
           <div style="display:flex;justify-content:flex-end;margin-top:16px"><button class="copy" id="copyButton" type="button">Salin nomor rekening</button></div>
         </div>
         <div class="thanks" id="finalThanks">Dengan kasih, Zulfajri Surya & Farah Dila Oktavia </div>
+      </div>
+    </section>
+    <section class="section wishes" aria-labelledby="wishesTitle">
+      <div class="wrap" style="max-width:720px">
+        <div class="eyebrow">Words from your heart</div>
+        <h2 class="section-heading" id="wishesTitle">Doa &amp; Ucapan</h2>
+        <p>Nama dan ucapan Anda akan terlihat oleh semua pengunjung.</p>
+        <form id="wishForm">
+          <label for="wishName">Nama</label><input id="wishName" required minlength="2" maxlength="60" autocomplete="name">
+          <label for="wishMessage">Ucapan untuk kami</label><textarea id="wishMessage" required minlength="3" maxlength="1000" rows="4"></textarea>
+          <button class="open-invitation" id="wishSend" type="submit">Kirim ucapan ♡</button>
+        </form>
+        <p id="wishStatus" role="status">Menghubungkan buku tamu…</p>
+        <div id="wishList" aria-label="Ucapan terbaru"></div>
+        <button id="wishRefresh" class="copy" type="button">Muat ulang ucapan</button>
       </div>
     </section>
   </main>
@@ -370,5 +386,7 @@
     })();
   </script>  
 <noscript><style>#invitationContent[hidden],#footerText[hidden]{display:block!important}.open-invitation,.cover-caption{display:none}</style><p>Aktifkan JavaScript untuk musik dan buku interaktif.</p></noscript>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.js" defer></script>
+<script src="guestbook.js" defer></script>
 </body>
 </html>
