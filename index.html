@@ -98,6 +98,9 @@
     .book .narrative-page,.book .gratitude-page{bottom:auto;height:auto;min-height:0;padding-bottom:40px}
     .book .photo-ending{min-height:560px}
     .narrative-text p:last-child{margin-bottom:0}
+    .book .narrative-page,.book .gratitude-page{min-height:var(--paper-height,560px)}
+    .story-book-layout .book{transition:none}
+    #lastChapter .story-copy > p + p{margin-top:16px}
   </style>
 </head>
 <body class="cover-closed">
@@ -165,12 +168,14 @@
 <div class="book-page narrative-page" id="storyLeaf7" hidden><div class="eyebrow">Our Love Story · 08</div><h3>Memilih untuk Selamanya</h3><div class="narrative-text"><p>Bagi kami, hari itu bukan sekadar tentang sebuah lamaran, melainkan tentang perjalanan panjang yang akhirnya menemukan tujuannya. Dari tatapan sederhana di lantai dua sekolah, pertemuan canggung di Lapangan Imam Bonjol, jarak yang pernah memisahkan, hingga kesempatan kedua yang membawa kami kembali bersama.</p><p>Kami percaya, tidak semua perjalanan harus berjalan lurus untuk sampai pada tujuan. Ada kalanya dua orang perlu berjalan di jalan masing-masing sebelum akhirnya menyadari bahwa mereka ingin melangkah ke arah yang sama.</p></div></div>
 <div class="book-page narrative-page" id="storyLeaf8" hidden><div class="eyebrow">Our Love Story · 09</div><h3>Memilih untuk Selamanya</h3><div class="narrative-text"><p>Dan kini, kami siap memulai perjalanan baru. Bukan lagi sebagai dua orang yang sekadar saling mencintai, tetapi sebagai dua hati yang memilih untuk saling menjaga, menerima, dan berjalan bersama dalam ikatan pernikahan.</p><p>Karena pada akhirnya, sejauh apa pun perjalanan membawa kami, hati ini selalu menemukan jalan untuk kembali.</p></div></div>
             <div class="book-page gratitude-page" id="lastChapter" hidden>
-        <div class="story-copy">
-          <div class="eyebrow">A note of gratitude</div>
-          <h2 class="section-heading">Hal sederhana yang terasa begitu berarti.</h2>
-          <p id="storyText">Perjalanan ini membawa kami pada satu keputusan indah: berjalan berdampingan, saling menjaga, dan bertumbuh bersama. Kami memilih merayakannya dengan sederhana, dekat dengan keluarga, dan penuh rasa syukur.</p>
-          <div class="quote" id="quote">“Pada akhirnya, rumah adalah seseorang yang ingin kita tuju, setiap hari.”</div>
-        </div>
+              <div class="story-copy">
+                <div class="eyebrow">A Note of Gratitude</div>
+                <h2 class="section-heading">Sebuah kisah, sebuah perjalanan, dan awal yang baru.</h2>
+                <p>Setiap perjalanan memiliki ceritanya sendiri, begitu pula dengan kami. Setelah melewati berbagai waktu, jarak, dan kesempatan untuk kembali menemukan satu sama lain, kini kami sampai pada sebuah babak baru yang ingin kami jalani bersama.</p>
+                <p>Dengan penuh rasa syukur, kami memilih untuk merayakan langkah ini secara sederhana, dikelilingi keluarga dan orang-orang terkasih.</p>
+                <p>Terima kasih telah meluangkan waktu untuk membaca sedikit cerita tentang perjalanan kami. Semoga kebahagiaan yang kami rasakan hari ini turut menjadi kebahagiaan bagi siapa pun yang ikut menyaksikannya.</p>
+                <div class="quote">“Bukan tentang seberapa panjang perjalanan yang telah dilalui, melainkan tentang siapa yang tetap ingin kita pilih untuk menemani perjalanan selanjutnya.”</div>
+              </div>
             </div>
             <div class="book-page photo-ending" id="photoChapter" hidden>
               <div class="eyebrow">Our favorite memory</div>
@@ -273,10 +278,20 @@
     const leaves=[...loveBook.querySelectorAll('.book-page')];
     const prev=document.getElementById('bookPrev'),nextButton=document.getElementById('bookNext');
     function fitBook(){
-      const active=leaves[Math.max(0,bookStep-1)];
-      if(!active || !loveBook.getBoundingClientRect().width)return;
-      const minimum=bookStep===0?510:active.classList.contains('photo-ending')?560:0;
-      loveBook.style.height=Math.ceil(Math.max(minimum,active.scrollHeight))+'px';
+      if(!loveBook.getBoundingClientRect().width)return;
+      // Ukur semua lembar pada lebar layar saat ini; gunakan satu tinggi bersama.
+      loveBook.style.setProperty('--paper-height','0px');
+      let tallest=560;
+      leaves.forEach(page=>{
+        const hidden=page.hidden;
+        const visibility=page.style.visibility;
+        page.style.visibility='hidden';page.hidden=false;
+        tallest=Math.max(tallest,page.scrollHeight);
+        page.hidden=hidden;page.style.visibility=visibility;
+      });
+      loveBook.style.height=Math.ceil(tallest)+'px';
+      loveBook.style.setProperty('--paper-height',Math.ceil(tallest)+'px');
+
     }
     window.addEventListener('resize',()=>{if(!bookBusy)fitBook();});
     if(document.fonts)document.fonts.ready.then(fitBook);
