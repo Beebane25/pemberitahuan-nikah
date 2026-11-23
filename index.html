@@ -509,6 +509,8 @@ Ibu Eva Susanti</p>
       const button=document.getElementById('musicToggle');
       const openButton=document.getElementById('openInvitation');
       let opened=false;
+      let userPaused=false;        // pengguna sengaja menjeda lewat tombol
+      let resumeWhenVisible=false; // musik menyala saat tab ditinggalkan
       audio.volume=0.45;
       function update(){
         const playing=!audio.paused;
@@ -523,10 +525,37 @@ Ibu Eva Susanti</p>
       audio.addEventListener('play',update);
       audio.addEventListener('pause',update);
       audio.addEventListener('error',()=>{button.textContent='Musik tidak tersedia';button.disabled=true;});
-      button.addEventListener('click',()=>{if(audio.paused) play();else audio.pause();});
+      button.addEventListener('click',()=>{
+        if(audio.paused){
+          userPaused=false;
+          resumeWhenVisible=false;
+          play();
+        }else{
+          userPaused=true;
+          resumeWhenVisible=false;
+          audio.pause();
+        }
+      });
+      // Musik berhenti saat halaman ditinggal (ganti tab, minimize, kunci layar)
+      // dan menyala lagi saat halaman dibuka kembali — kecuali pengguna menjedanya sendiri.
+      function handleVisibility(){
+        if(document.hidden){
+          if(!audio.paused){resumeWhenVisible=true;audio.pause();}
+        }else if(resumeWhenVisible&&!userPaused){
+          resumeWhenVisible=false;
+          play();
+        }
+      }
+      document.addEventListener('visibilitychange',handleVisibility);
+      window.addEventListener('pagehide',()=>{if(!audio.paused){resumeWhenVisible=true;audio.pause();}});
+      window.addEventListener('pageshow',event=>{
+        if(event.persisted&&resumeWhenVisible&&!userPaused){resumeWhenVisible=false;play();}
+      });
       openButton.addEventListener('click',()=>{
         if(opened) return;
         opened=true;
+        userPaused=false;
+        resumeWhenVisible=false;
         play();
         document.body.classList.remove('cover-closed');
         document.getElementById('welcomeCover').hidden=true;
