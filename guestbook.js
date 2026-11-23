@@ -42,5 +42,3 @@
   setInterval(()=>{if(!document.hidden)load();},30000);
   load();
 })();
-
-// uji-auto-deploy: penanda sementara
