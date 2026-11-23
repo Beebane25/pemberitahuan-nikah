@@ -186,6 +186,12 @@
     .detail-link:focus-visible{outline:3px solid #2786b5;outline-offset:3px}
     .detail-link span[aria-hidden]{font-size:.9em;line-height:1}
     .detail small + small{margin-top:4px}
+    /* Dua agenda waktu dipisah tegas: label + jam, tidak bisa terbaca menyatu. */
+    .agenda{list-style:none;margin:14px 0 16px;padding:0;display:grid;gap:8px;text-align:left}
+    .agenda li{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 10px;padding:9px 12px;border:1px solid #dcebf0;border-radius:12px;background:#f7fcfe}
+    .agenda .agenda-label{font:700 .63rem var(--sans);letter-spacing:.11em;text-transform:uppercase;color:#7ba2b1}
+    .agenda small{margin:0;color:#2d5969;font-size:.86rem;font-weight:600;white-space:nowrap}
+    @media(max-width:420px){.agenda li{grid-template-columns:1fr}}
     /* Turnstile: ciut mulus setelah verifikasi berhasil. */
     .wishes .cf-turnstile{overflow:hidden;transition:height .35s cubic-bezier(.3,.9,.3,1),opacity .3s ease,margin-top .35s ease}
     .wishes .cf-turnstile.is-done{opacity:0;pointer-events:none;margin-top:0}
@@ -250,7 +256,12 @@ Ibu Eva Susanti</p>
           <p>Beberapa detail kecil tentang hari bahagia kami.</p>
         </div>
         <div class="details-grid">
-          <article class="detail"><div class="symbol">◷</div><h3>Tanggal</h3><p id="detailDate">Jum'at, 27 November 2026</p><small id="detailTime">08.00 – 10.00 WIB</small><small id="syukuranTime">20.00 WIB – selesai</small><a class="detail-link" id="calendarLink" href="#" target="_blank" rel="noopener">Tambah ke kalender <span aria-hidden="true">↗</span></a></article>
+          <article class="detail"><div class="symbol">◷</div><h3>Tanggal</h3><p id="detailDate">Jum'at, 27 November 2026</p>
+            <ul class="agenda">
+              <li><span class="agenda-label">Akad nikah</span><small id="detailTime">08.00 – 10.00 WIB</small></li>
+              <li><span class="agenda-label">Syukuran keluarga</span><small id="syukuranTime">20.00 WIB – selesai</small></li>
+            </ul>
+            <a class="detail-link" id="calendarLink" href="#" target="_blank" rel="noopener">Tambah ke kalender <span aria-hidden="true">↗</span></a></article>
           <article class="detail"><div class="symbol">⌖</div><h3>Akad Nikah</h3><p id="venue">Mesjid Jabal Arafah</p><small id="address">Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau</small><a class="detail-link" id="venueMapLink" href="https://www.google.com/maps/search/?api=1&amp;query=Masjid+Jabal+Arafah+Lubuk+Baja+Batam" target="_blank" rel="noopener">Lihat lokasi akad <span aria-hidden="true">↗</span></a></article>
           <article class="detail"><div class="symbol">♡</div><h3>Syukuran</h3><p id="syukuranPlace">Kediaman Keluarga</p><small id="syukuranAddress">Sei Tering 2 Melcem Atas, Blok B No. 84, RT.2/RW.5, Tanjung Sengkuang, Batu Ampar (Sei Tering 2 B-84), Kota Batam, Kepulauan Riau</small><a class="detail-link" id="syukuranMapLink" href="https://www.google.com/maps/search/?api=1&amp;query=1.1755556%2C104.0170556" target="_blank" rel="noopener">Lihat lokasi syukuran <span aria-hidden="true">↗</span></a></article>
         </div>
