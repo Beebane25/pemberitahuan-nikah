@@ -94,6 +94,20 @@ export async function onRequestPost({ request, env }) {
       !ALLOWED_HOST.test(result.hostname || '') ||
       result.action !== TURNSTILE_ACTION
     ) {
+      // DIAGNOSTIK SEMENTARA: tidak pernah mencetak secret/token, hanya bentuknya
+      const secret = env.TURNSTILE_SECRET_KEY;
+      console.log('TURNSTILE_FAIL ' + JSON.stringify({
+        httpOk: verify.ok,
+        status: verify.status,
+        success: result.success,
+        errorCodes: result['error-codes'] || [],
+        hostname: result.hostname || null,
+        action: result.action || null,
+        secretLen: secret.length,
+        secretHasSpace: /\s/.test(secret),
+        secretStart: secret.slice(0, 4),
+        secretEnd: secret.slice(-4),
+      }));
       return json(403, 'Verifikasi keamanan gagal. Silakan coba kembali.');
     }
 
