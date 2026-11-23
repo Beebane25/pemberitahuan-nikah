@@ -1,9 +1,12 @@
 const reply=(status,message)=>Response.json({message},{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
+const ALLOWED_HOST=/^(?:pemberitahuan-nikah\.zulfajrisurya30\.workers\.dev|pemberitahuan-nikah\.pages\.dev|[a-z0-9-]+\.pemberitahuan-nikah\.pages\.dev)$/;
+const isAllowed=h=>ALLOWED_HOST.test(h||'');
+const hostOf=v=>{try{return new URL(v).host}catch{return ''}};
 export default {async fetch(request,env){
  const url=new URL(request.url);
  if(url.pathname!='/api/wishes') return env.ASSETS.fetch(request);
  if(request.method!=='POST')return reply(405,'Metode tidak diizinkan.');
- if(request.headers.get('Origin')!==url.origin)return reply(403,'Asal permintaan tidak diizinkan.');
+ if(!isAllowed(hostOf(request.headers.get('Origin')||'')))return reply(403,'Asal permintaan tidak diizinkan.');
  if(!env.SUPABASE_URL||!env.SUPABASE_SERVICE_ROLE_KEY||!env.TURNSTILE_SECRET_KEY)return reply(503,'Konfigurasi layanan belum lengkap.');
  try{
  if(!request.headers.get('Content-Type')?.includes('application/json'))return reply(415,'Gunakan JSON.');
@@ -16,7 +19,7 @@ export default {async fetch(request,env){
  const ip=request.headers.get('CF-Connecting-IP');if(!ip)return reply(403,'Koneksi tidak valid.');
  const check=await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify',{method:'POST',body:new URLSearchParams({secret:env.TURNSTILE_SECRET_KEY,response:token,remoteip:ip}),signal:AbortSignal.timeout(10000)});
  const verified=await check.json();
- if(!check.ok||!verified.success||verified.hostname!==url.hostname||verified.action!=='wedding_wish')return reply(403,'Verifikasi keamanan gagal. Silakan coba kembali.');
+ if(!check.ok||!verified.success||!isAllowed(verified.hostname)||verified.action!=='wedding_wish')return reply(403,'Verifikasi keamanan gagal. Silakan coba kembali.');
  const hash=async text=>Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text))),b=>b.toString(16).padStart(2,'0')).join('');
  const ipHash=await hash(env.TURNSTILE_SECRET_KEY+'|'+ip);
  const contentHash=await hash(name.trim().toLowerCase()+'|'+message.trim().toLowerCase());
