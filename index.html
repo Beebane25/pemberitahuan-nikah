@@ -192,6 +192,8 @@
     .agenda .agenda-label{font:700 .63rem var(--sans);letter-spacing:.11em;text-transform:uppercase;color:#7ba2b1}
     .agenda small{margin:0;color:#2d5969;font-size:.86rem;font-weight:600;white-space:nowrap}
     @media(max-width:420px){.agenda li{grid-template-columns:1fr}}
+    /* Jembatan kalimat sebelum kartu rekening: beri jarak & nada lebih tenang. */
+    .closing .note{margin:22px auto 0;max-width:540px;color:#8aa2ab;line-height:1.65}
     /* Turnstile: ciut mulus setelah verifikasi berhasil. */
     .wishes .cf-turnstile{overflow:hidden;transition:height .35s cubic-bezier(.3,.9,.3,1),opacity .3s ease,margin-top .35s ease}
     .wishes .cf-turnstile.is-done{opacity:0;pointer-events:none;margin-top:0}
@@ -319,9 +321,10 @@ Ibu Eva Susanti</p>
       <div class="wrap">
         
         <h2>Terima kasih telah menjadi bagian dari cerita kami.</h2>
-        <p id="closingText">Kami tidak mengadakan resepsi karena keterbatasan tempat, dan hanya mengadakan syukuran yang dihadiri keluarga dekat serta beberapa orang terdekat. Untuk itu, dengan kerendahan hati kami memohon maaf apabila tidak dapat mengundang Anda secara langsung. Pemberitahuan ini kami maksudkan sekadar sebagai kabar bahwa kami akan menikah. Doa baik dan harapan tulus dari Anda akan menjadi hadiah yang sangat berharga bagi kami.</p>
+        <p id="closingText">Kami tidak mengadakan resepsi karena keterbatasan tempat, dan hanya mengadakan syukuran yang dihadiri keluarga dekat serta beberapa orang terdekat. Untuk itu, dengan kerendahan hati kami memohon maaf apabila tidak dapat mengundang Anda secara langsung. Pemberitahuan ini kami maksudkan sekadar sebagai kabar bahwa kami akan menikah. Doa baik dan harapan tulus dari Anda sudah lebih dari cukup bagi kami.</p>
+        <p class="note" id="giftNote">Bila Anda berkenan menyampaikan tanda kasih, kami sertakan informasinya di bawah ini. Sungguh, hal itu tidak kami harapkan dan sama sekali bukan kewajiban — doa serta restu Anda jauh lebih berarti bagi kami.</p>
         <div class="bank">
-          <div class="bank-top"><div><div class="bank-label">A little wedding gift · optional</div><div class="bank-name" id="bankName">Mandiri</div></div><div class="symbol">♡</div></div>
+          <div class="bank-top"><div><div class="bank-label" id="bankLabel">Tanda kasih · sepenuhnya pilihan Anda</div><div class="bank-name" id="bankName">Mandiri</div></div><div class="symbol">♡</div></div>
           <div class="bank-number" id="accountNumber">1090020727244</div>
           <div class="bank-owner" id="accountOwner">a.n. ZULFAJRI SURYA</div>
           <div style="display:flex;justify-content:flex-end;margin-top:16px"><button class="copy" id="copyButton" type="button">Salin nomor rekening</button></div>
@@ -375,7 +378,9 @@ Ibu Eva Susanti</p>
       privateNote: "Pemberitahuan ini bukan undangan resmi, melainkan sekadar kabar bahwa kami akan menikah. Karena keterbatasan tempat, syukuran hanya dihadiri keluarga dekat dan beberapa orang terdekat; kami mohon maaf apabila tidak dapat mengundang lebih luas.",
       storyText: "Perjalanan ini membawa kami pada satu keputusan indah: berjalan berdampingan, saling menjaga, dan bertumbuh bersama. Kami memilih merayakannya dengan sederhana, dekat dengan keluarga, dan penuh rasa syukur.",
       quote: "“Pada akhirnya, rumah adalah seseorang yang ingin kita tuju, setiap hari.”",
-      closingText: "Kami tidak mengadakan resepsi karena keterbatasan tempat, dan hanya mengadakan syukuran yang dihadiri keluarga dekat serta beberapa orang terdekat. Untuk itu, dengan kerendahan hati kami memohon maaf apabila tidak dapat mengundang Anda secara langsung. Pemberitahuan ini kami maksudkan sekadar sebagai kabar bahwa kami akan menikah. Doa baik dan harapan tulus dari Anda akan menjadi hadiah yang sangat berharga bagi kami.",
+      closingText: "Kami tidak mengadakan resepsi karena keterbatasan tempat, dan hanya mengadakan syukuran yang dihadiri keluarga dekat serta beberapa orang terdekat. Untuk itu, dengan kerendahan hati kami memohon maaf apabila tidak dapat mengundang Anda secara langsung. Pemberitahuan ini kami maksudkan sekadar sebagai kabar bahwa kami akan menikah. Doa baik dan harapan tulus dari Anda sudah lebih dari cukup bagi kami.",
+      giftNote: "Bila Anda berkenan menyampaikan tanda kasih, kami sertakan informasinya di bawah ini. Sungguh, hal itu tidak kami harapkan dan sama sekali bukan kewajiban — doa serta restu Anda jauh lebih berarti bagi kami.",
+      bankLabel: "Tanda kasih · sepenuhnya pilihan Anda",
       bankName: "Mandiri",
       accountNumber: "1090020727244",
       accountOwner: "a.n. ZULFAJRI SURYA",
@@ -384,7 +389,7 @@ Ibu Eva Susanti</p>
       storyPhoto: "foto favorit.jpg",
       footerText: "A new chapter begins · 2026"
     };
-    const fields = ["nameOne","nameTwo","parentsOne","parentsTwo","dateShort","dateLong","time","syukuranTime","venue","address","syukuranPlace","syukuranAddress","heroMessage","announcement","privateNote","storyText","quote","closingText","bankName","accountNumber","accountOwner","footerText"];
+    const fields = ["nameOne","nameTwo","parentsOne","parentsTwo","dateShort","dateLong","time","syukuranTime","venue","address","syukuranPlace","syukuranAddress","heroMessage","announcement","privateNote","storyText","quote","closingText","giftNote","bankLabel","bankName","accountNumber","accountOwner","footerText"];
     fields.forEach(key => { const el=document.getElementById(key === "dateShort" ? "heroDate" : key === "dateLong" ? "detailDate" : key); if(el) el.textContent=wedding[key]; });
     document.getElementById("detailTime").textContent=wedding.time;
     document.getElementById("syukuranTime").textContent=wedding.syukuranTime;
