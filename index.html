@@ -191,6 +191,21 @@
     .wishes .cf-turnstile.is-done{opacity:0;pointer-events:none;margin-top:0}
     .verify-note{display:flex;align-items:center;gap:8px;margin:16px 0 0;font-size:.82rem;color:#2c7a53}
     .verify-note .tick{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#d7f2e2;color:#1f7a4a;font-size:.75rem;font-weight:700}
+    /* ===== Ornamen garis kaligrafi halus untuk latar =====
+       Pola ubin 120x120: dua lengkung kaligrafi + sulur kecil + titik.
+       Dibuat sangat tipis agar teks tetap dominan. */
+    :root{
+      --kaligrafi:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%2399cade' stroke-width='1' stroke-linecap='round'%3E%3Cpath d='M0 34Q30 6 60 34T120 34'/%3E%3Cpath d='M0 94Q30 66 60 94T120 94'/%3E%3Cpath d='M60 52q9 8 0 16q-9-8 0-16'/%3E%3C/g%3E%3Cg fill='%2399cade' opacity='.45'%3E%3Ccircle cx='18' cy='64' r='1.5'/%3E%3Ccircle cx='102' cy='64' r='1.5'/%3E%3C/g%3E%3C/svg%3E");
+      --kaligrafi-size:150px 150px;
+      /* Garis kaligrafi (flourish) untuk bawah judul bagian. */
+      --flourish:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='22' viewBox='0 0 260 22'%3E%3Cg fill='none' stroke='%237fb9d6' stroke-width='1.2' stroke-linecap='round'%3E%3Cpath d='M6 11c22 0 30-7 46-7s26 7 44 7'/%3E%3Cpath d='M254 11c-22 0-30-7-46-7s-26 7-44 7'/%3E%3Cpath d='M118 11c4-5 8-5 12 0-4 5-8 5-12 0z'/%3E%3Cpath d='M142 11c-4-5-8-5-12 0 4 5 8 5 12 0z'/%3E%3C/g%3E%3Cg fill='%237fb9d6'%3E%3Ccircle cx='130' cy='11' r='2.4'/%3E%3Ccircle cx='6' cy='11' r='1.5'/%3E%3Ccircle cx='254' cy='11' r='1.5'/%3E%3C/g%3E%3C/svg%3E")
+    }
+    .intro h2::after,.wishes h2::after,.closing h2::after{content:'';display:block;width:230px;max-width:72%;height:20px;margin:14px auto 0;background:var(--flourish) center/contain no-repeat;opacity:.9}
+    body,.footer{background-color:#f3fbff;background-image:var(--kaligrafi);background-repeat:repeat;background-size:var(--kaligrafi-size)}
+    .soft{background-color:#e2f5ff;background-image:var(--kaligrafi);background-repeat:repeat;background-size:var(--kaligrafi-size)}
+    .wishes{background-color:#effaff;background-image:var(--kaligrafi);background-repeat:repeat;background-size:var(--kaligrafi-size)}
+    .love-story{background-image:var(--kaligrafi),linear-gradient(145deg,#dff5ff,#f8fdff);background-repeat:repeat,no-repeat;background-size:var(--kaligrafi-size),100% 100%}
+    .closing{background-image:var(--kaligrafi),linear-gradient(180deg,#e5f7ff,#bee9ff);background-repeat:repeat,no-repeat;background-size:var(--kaligrafi-size),100% 100%}
   </style>
   <link rel="icon" type="image/png" href="gambar%20pembuka.png">
   <link rel="apple-touch-icon" href="gambar%20pembuka.png">
