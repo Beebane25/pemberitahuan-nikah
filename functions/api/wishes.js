@@ -69,7 +69,7 @@ export async function onRequestPost({ request, env }) {
     typeof name !== 'string' || typeof message !== 'string' ||
     typeof token !== 'string' || !token || token.length > 2048 ||
     name.trim().length < 2 || name.trim().length > 60 ||
-    message.trim().length < 3 || message.trim().length > 1000
+    message.trim().length < 3 || message.trim().length > 500
   ) {
     return json(400, 'Periksa nama, ucapan, dan verifikasi keamanan.');
   }

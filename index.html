@@ -206,18 +206,138 @@
       --flourish:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='44' viewBox='0 0 320 44'%3E%3Cg fill='none' stroke='%237fb8d2' stroke-width='1.1' stroke-linecap='round' stroke-linejoin='round'%3E%3Cg id='s'%3E%3Cpath d='M152 22C136 22 126 14 106 14 86 14 74 24 52 24 38 24 30 20 24 17'/%3E%3Cpath d='M24 17c-7-1-11 3-10 7 1 4 6 5 8 2 2-3 0-6-3-6'/%3E%3Cpath d='M104 14c7-8 18-9 24-4-8 6-17 8-24 4z'/%3E%3Cpath d='M66 23c6-7 16-8 21-4-7 5-14 6-21 4z'/%3E%3C/g%3E%3Cuse href='%23s' transform='translate(320 0) scale(-1 1)'/%3E%3Cpath d='M160 20c-4-3-4-9 0-11 4 2 4 8 0 11z'/%3E%3Cpath d='M160 24c-4 3-4 9 0 11 4-2 4-8 0-11z'/%3E%3Cpath d='M158 22c-3-4-9-4-11 0 2 4 8 4 11 0z'/%3E%3Cpath d='M162 22c3-4 9-4 11 0-2 4-8 4-11 0z'/%3E%3C/g%3E%3Cg fill='%237fb8d2'%3E%3Ccircle cx='160' cy='22' r='2'/%3E%3Ccircle cx='44' cy='24' r='1.4'/%3E%3Ccircle cx='276' cy='24' r='1.4'/%3E%3C/g%3E%3C/svg%3E")
     }
     .intro h2::after,.wishes h2::after,.closing h2::after{content:'';display:block;width:280px;max-width:80%;height:30px;margin:18px auto 0;background:var(--flourish) center/contain no-repeat}
+
+    /* ===== Ornamen arabesque (dekorasi latar, tidak mengganggu konten) ===== */
+    .hero,.section,.love-story,.closing{position:relative}
+    .section > .wrap,.love-story > .wrap,.closing > .wrap{position:relative;z-index:1}
+    .orn-layer{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+    .orn{position:absolute;display:block;color:#7fb8d2;opacity:.14;pointer-events:none}
+    .orn svg{display:block;width:100%;height:auto}
+    .orn--tr{top:-20px;right:-26px;width:min(260px,42vw)}
+    .orn--bl{bottom:-24px;left:-26px;width:min(260px,42vw);transform:scale(-1,-1)}
+    .orn--tl{top:-16px;left:-24px;width:min(190px,32vw);transform:scale(-1,1)}
+    .orn--br{bottom:-16px;right:-24px;width:min(200px,34vw);transform:scale(-1,-1)}
+    .orn--band{top:14px;left:50%;transform:translateX(-50%);width:min(560px,82%);opacity:.16}
+    .orn--soft{opacity:.10}
+    @media(max-width:700px){
+      .orn--tr,.orn--bl{width:min(200px,52vw)}
+      .orn--tl,.orn--br{width:min(150px,42vw)}
+      .orn--band{width:min(400px,88%);top:8px}
+    }
+    /* ===== Countdown ===== */
+    .cd-lead{font-family:var(--sans);font-size:1rem;color:var(--muted);max-width:610px;margin:0 auto}
+    .cd{max-width:600px;margin:26px auto 0;background:#f2fbff;border:1px solid #cfe8f4;border-radius:22px;padding:24px 20px 22px;text-align:center;box-shadow:0 16px 44px #183b5912}
+    .cd-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 16px}
+    .cd-cell{background:#fff;border:1px solid #dcebf0;border-radius:14px;padding:12px 6px}
+    .cd-num{display:block;font-family:var(--sans);font-size:clamp(1.5rem,5.4vw,2rem);font-weight:600;line-height:1.1;color:#1c5878;font-variant-numeric:tabular-nums;letter-spacing:.02em}
+    .cd-lab{display:block;margin-top:8px;font-family:var(--sans);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8aa2ab;font-weight:700}
+    .cd-state{margin:2px auto 8px;max-width:440px;font-family:var(--serif);font-size:clamp(1.05rem,2.6vw,1.2rem);font-weight:500;line-height:1.55;color:#1c5878}
+    .cd-state:empty{display:none}
+    .cd-meta{margin:6px auto 0;max-width:480px;font-family:var(--sans);font-size:.82rem;color:#5d819b;line-height:1.6}
+    .cd-meta strong{color:#2d5969;font-weight:600}
+    .cd-meta-label{display:block;font-family:var(--sans);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#8aa2ab;font-weight:700;margin-bottom:2px}
+    .cd.is-done .cd-grid{display:none}
+    @media(max-width:420px){.cd-grid{gap:7px}.cd-cell{padding:10px 3px;border-radius:11px}.cd-lab{font-size:.66rem;letter-spacing:.1em}}
+    /* ===== Guestbook v2 ===== */
+    .wishes-head{text-align:center;margin:0 auto 28px}
+    .wishes-title{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.3rem);font-weight:500;line-height:1.2;color:#1c5878;margin:12px 0 18px}
+    .wishes-sub{font-family:var(--sans);font-size:1rem;color:var(--muted);margin:0 auto;max-width:610px}
+    .wish-form-card{background:#fff;border:1px solid #dce9ed;border-radius:20px;padding:24px;box-shadow:0 14px 40px #183b5910}
+    .wg-field{margin:0 0 16px}
+    .wg-label-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+    .wishes .wg-label-row label,.wg-field-label{display:block;margin:0 0 6px;font-family:var(--sans);font-size:.9rem;font-weight:500;color:#2d5969}
+    .wg-count{font-family:var(--sans);font-size:.76rem;color:#7ba2b1;font-variant-numeric:tabular-nums}
+    .wg-count.is-near{color:#b5762a}
+    .wg-count.is-over{color:#b23b3b;font-weight:700}
+    .wg-hint{margin:6px 0 0;font-family:var(--sans);font-size:.8rem;color:#8aa2ab}
+    .wg-status{display:flex;align-items:center;gap:8px;margin:18px 0 0;min-height:1.4em;font-family:var(--sans);font-size:.9rem;color:#2d5969}
+    .wg-status.is-ok{color:#1f7a4a}
+    .wg-status.is-err{color:#a93b3b}
+    .spinner{width:15px;height:15px;flex:none;border:2px solid #cfe8f4;border-top-color:#2786b5;border-radius:50%;animation:spin .8s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @media(prefers-reduced-motion:reduce){.spinner{animation-duration:2.6s}}
+    #wishSend{display:inline-flex;align-items:center;justify-content:center;gap:10px;margin-top:6px}
+    .wish-list{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+    .wish-card{background:#fff;border:1px solid #e0eef4;border-radius:16px;padding:18px 20px;box-shadow:0 8px 22px #183b590a}
+    .wish-card-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+    .wish-card-name{font-family:var(--sans);font-size:.95rem;font-weight:600;color:#1c5878}
+    .wish-card-time{font-family:var(--sans);font-size:.72rem;color:#7f9aa7}
+    .wish-card-body{margin:8px 0 0;white-space:pre-wrap;overflow-wrap:anywhere;color:#3d6377;font-family:var(--sans);font-size:.95rem;line-height:1.75}
+    .wg-note{text-align:center;color:#7f9aa7;font-family:var(--sans);font-size:.88rem;padding:26px 14px;border:1px dashed #cfe8f4;border-radius:16px;background:#f8fdff}
+    .wg-skel span{display:block;height:11px;border-radius:6px;background:linear-gradient(90deg,#eaf4f8,#f7fcff,#eaf4f8);margin:9px 0}
+    .wishes-list-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin:34px 0 14px;flex-wrap:wrap}
+    .wishes-list-title{font-family:var(--serif);font-size:1.25rem;font-weight:500;color:#1c5878;margin:0}
+    .wg-more{display:flex;justify-content:center;margin-top:18px}
+    .hero-sub{white-space:pre-line}
+    #closingText{white-space:pre-line}
   </style>
   <link rel="icon" type="image/png" href="gambar%20pembuka.png">
   <link rel="apple-touch-icon" href="gambar%20pembuka.png">
 </head>
 <body class="cover-closed">
+  <svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute;overflow:hidden">
+    <defs>
+      <symbol id="ornCorner" viewBox="0 0 240 240">
+        <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 234C6 150 60 74 150 40"/>
+          <path d="M6 234C90 226 170 178 205 104"/>
+          <path d="M40 232c14-40 44-70 84-84"/>
+          <path d="M150 40c-6-14-2-26 8-32 8 10 8 22-2 32"/>
+          <path d="M120 96c18-6 34 0 42 14-14 8-30 6-42-4"/>
+          <path d="M92 132c16-4 30 2 37 14-12 8-27 6-37-2"/>
+          <path d="M205 104c14 4 22 14 22 26-12 4-22-2-26-12"/>
+          <path d="M64 214c10-6 20-4 26 4-8 8-18 10-26 6"/>
+          <circle cx="150" cy="40" r="2.2" fill="currentColor" stroke="none"/>
+          <circle cx="205" cy="104" r="2" fill="currentColor" stroke="none"/>
+          <circle cx="26" cy="222" r="2" fill="currentColor" stroke="none"/>
+        </g>
+      </symbol>
+      <symbol id="ornBand" viewBox="0 0 620 80">
+        <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+          <g id="ornBandHalf">
+            <path d="M310 40c-34 0-58-14-96-16-38-2-62 12-92 18"/>
+            <path d="M310 40c-30 6-52 20-84 24"/>
+            <path d="M214 24c14-9 30-8 38 0-10 7-26 8-38 0z"/>
+            <path d="M140 42c12-8 26-7 33 0-9 6-23 7-33 0z"/>
+            <path d="M122 42c-14-3-22 4-24 12 12 4 22 0 24-12z"/>
+            <path d="M310 34c-6-8-6-16 0-22 6 6 6 14 0 22z"/>
+          </g>
+          <use href="#ornBandHalf" transform="translate(620 0) scale(-1 1)"/>
+          <path d="M310 40c-5 6-5 14 0 20 5-6 5-14 0-20z"/>
+          <circle cx="310" cy="46" r="2" fill="currentColor" stroke="none"/>
+          <circle cx="96" cy="44" r="1.6" fill="currentColor" stroke="none"/>
+          <circle cx="524" cy="44" r="1.6" fill="currentColor" stroke="none"/>
+        </g>
+      </symbol>
+      <symbol id="ornBud" viewBox="0 0 120 120">
+        <g fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M60 98c0-18 0-30-10-44"/>
+          <path d="M60 98c0-18 0-30 10-44"/>
+          <path d="M60 54c-8-10-6-22 4-28 8 8 8 20-4 28z"/>
+          <path d="M44 74c-10-4-16-12-14-22 10 2 17 10 18 20"/>
+          <path d="M76 74c10-4 16-12 14-22-10 2-17 10-18 20"/>
+          <path d="M50 98c-8 4-12 10-12 18 10 0 18-6 20-14"/>
+          <path d="M70 98c8 4 12 10 12 18-10 0-18-6-20-14"/>
+          <circle cx="60" cy="98" r="2" fill="currentColor" stroke="none"/>
+        </g>
+      </symbol>
+    </defs>
+  </svg>
   <audio id="weddingMusic" src="payung%20teduh%20-%20akad.mp3" loop preload="auto"></audio>
   <button class="music-toggle" id="musicToggle" type="button" aria-label="Putar musik Payung Teduh — Akad" aria-pressed="false">♫ Putar musik</button>
   <header class="hero" id="welcomeCover">
+    <div class="orn-layer" aria-hidden="true">
+      <div class="orn orn--tr"><svg viewBox="0 0 240 240"><use href="#ornCorner"/></svg></div>
+      <div class="orn orn--bl"><svg viewBox="0 0 240 240"><use href="#ornCorner"/></svg></div>
+    </div>
     <div class="wrap hero-inner">
       
       <h1>We said <em>yes</em>,<br>to forever.</h1>
-      <p class="hero-sub" id="heroMessage">Dengan penuh rasa syukur, kami memberitahukan bahwa kami akan melangsungkan pernikahan. Bukan undangan terbuka, hanya kabar bahagia untuk orang-orang yang kami sayangi.</p>
+      <p class="hero-sub" id="heroMessage">Dengan penuh rasa syukur, kami ingin membagikan kabar bahagia tentang perjalanan kami yang kini memasuki babak baru.
+
+Kami, Zulfajri Surya dan Farah Dila Oktavia, akan melangsungkan akad nikah pada Jumat, 27 November 2026.
+
+Halaman ini kami hadirkan sebagai pemberitahuan kabar bahagia, bukan undangan terbuka untuk menghadiri acara. Tidak ada kewajiban untuk hadir; doa dan perhatian dari mana pun sudah sangat berarti bagi kami.</p>
       <div class="photo-pair">
         <div class="couple-col">
           <div class="photo"><img id="photoOne" src="" alt="Foto Zulfajri Surya" hidden><div class="placeholder" id="placeholderOne"></div></div>
@@ -233,7 +353,7 @@ Ibu Desmawati (Almh)</p>
 Ibu Eva Susanti</p>
         </div>
       </div>
-      <div class="date-line" id="heroDate">Jum'at · 27 November 2026</div>
+      <div class="date-line" id="heroDate">Jumat · 27 November 2026</div>
       
       <button type="button" class="open-invitation" id="openInvitation" aria-controls="invitationContent">Buka Kabar Bahagia <span aria-hidden="true">↗</span></button>
       
@@ -241,16 +361,34 @@ Ibu Eva Susanti</p>
   </header>
 
   <main id="invitationContent" tabindex="-1" hidden>
-    <section class="section">
+    <section class="section" id="countdownSection" aria-labelledby="cdTitle">
+      <div class="orn-layer" aria-hidden="true">
+        <div class="orn orn--tl"><svg viewBox="0 0 240 240"><use href="#ornCorner"/></svg></div>
+        <div class="orn orn--br orn--soft"><svg viewBox="0 0 120 120"><use href="#ornBud"/></svg></div>
+      </div>
       <div class="wrap intro">
-        
         <img src="gambar%20pembuka.png" alt="Ilustrasi pasangan pengantin berpelukan" style="display:block;width:min(300px,80%);height:auto;margin:24px auto 28px" loading="lazy">
-        <h2 class="serif">Sebuah kabar, dari hati kami.</h2>
-        <p id="announcement">Dengan penuh rasa syukur, kami memberitahukan bahwa kami akan melangsungkan akad nikah pada Jum'at, 27 November 2026, pukul 08.00 – 10.00 WIB di Masjid Jabal Arafah, Lubuk Baja, Kota Batam. Kami tidak mengadakan resepsi maupun acara terbuka. Untuk itu, dengan kerendahan hati kami memohon maaf apabila tidak dapat mengundang secara langsung. Pemberitahuan ini kami sampaikan bukan sebagai undangan, melainkan sekadar kabar bahwa kami akan menikah. Doa dari jauh sudah lebih dari cukup bagi kami.</p>
+        <h2 class="serif" id="cdTitle">The Beginning of Forever.</h2>
+        <p class="cd-lead">Menghitung hari menuju akad nikah kami.</p>
+        <div class="cd" id="countdown">
+          <div class="cd-grid" aria-hidden="true">
+            <div class="cd-cell"><span class="cd-num" id="cdDays">00</span><span class="cd-lab">Hari</span></div>
+            <div class="cd-cell"><span class="cd-num" id="cdHours">00</span><span class="cd-lab">Jam</span></div>
+            <div class="cd-cell"><span class="cd-num" id="cdMinutes">00</span><span class="cd-lab">Menit</span></div>
+            <div class="cd-cell"><span class="cd-num" id="cdSeconds">00</span><span class="cd-lab">Detik</span></div>
+          </div>
+          <p class="cd-state" id="cdState" role="status" aria-live="polite"></p>
+          <p class="cd-meta"><span class="cd-meta-label">Tanggal acara</span><strong>Jumat, 27 November 2026</strong> · 08.00–10.00 WIB</p>
+          <p class="cd-meta"><span class="cd-meta-label">Lokasi acara</span>Akad Nikah Zulfajri &amp; Farah Dila · Masjid Jabal Arafah, Lubuk Baja, Batam</p>
+        </div>
       </div>
     </section>
 
     <section class="section soft" id="details">
+      <div class="orn-layer" aria-hidden="true">
+        <div class="orn orn--band"><svg viewBox="0 0 620 80"><use href="#ornBand"/></svg></div>
+        <div class="orn orn--br"><svg viewBox="0 0 240 240"><use href="#ornCorner"/></svg></div>
+      </div>
       <div class="wrap">
         <div class="intro">
           
@@ -258,18 +396,22 @@ Ibu Eva Susanti</p>
           <p>Beberapa detail kecil tentang hari bahagia kami.</p>
         </div>
         <div class="details-grid">
-          <article class="detail"><div class="symbol">◷</div><h3>Tanggal</h3><p id="detailDate">Jum'at, 27 November 2026</p>
+          <article class="detail"><div class="symbol">◷</div><h3>Tanggal</h3><p id="detailDate">Jumat, 27 November 2026</p>
             <ul class="agenda">
               <li><span class="agenda-label">Akad nikah</span><small id="detailTime">08.00 – 10.00 WIB</small></li>
             </ul>
             <a class="detail-link" id="calendarLink" href="#" target="_blank" rel="noopener">Tambah ke kalender <span aria-hidden="true">↗</span></a></article>
           <article class="detail"><div class="symbol">⌖</div><h3>Akad Nikah</h3><p id="venue">Masjid Jabal Arafah</p><small id="address">Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau</small><a class="detail-link" id="venueMapLink" href="https://www.google.com/maps/search/?api=1&amp;query=Masjid+Jabal+Arafah+Lubuk+Baja+Batam" target="_blank" rel="noopener">Lihat lokasi akad <span aria-hidden="true">↗</span></a></article>
         </div>
-        <p class="note" id="privateNote">Pemberitahuan ini bukan undangan resmi, melainkan sekadar kabar bahwa kami akan menikah. Akad nikah kami laksanakan secara sederhana; kami mohon maaf apabila tidak dapat mengundang lebih luas.</p>
       </div>
     </section>
 
     <section class="love-story" aria-labelledby="loveStoryTitle">
+      <div class="orn-layer" aria-hidden="true">
+        <div class="orn orn--band"><svg viewBox="0 0 620 80"><use href="#ornBand"/></svg></div>
+        <div class="orn orn--tl orn--soft"><svg viewBox="0 0 120 120"><use href="#ornBud"/></svg></div>
+        <div class="orn orn--br"><svg viewBox="0 0 240 240"><use href="#ornCorner"/></svg></div>
+      </div>
       <div class="wrap">
         
         <h2 id="loveStoryTitle">The love story begins</h2>
@@ -278,14 +420,14 @@ Ibu Eva Susanti</p>
 
         <div class="book-wrap">
           <div class="book" id="loveBook" role="button" tabindex="0" aria-label="Buka buku kisah cinta" aria-expanded="false">
-<div class="book-page narrative-page" id="storyLeaf0" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 01</div><h3>Our Love Story</h3><div class="narrative-text"><p>Dari sebuah pertemuan sederhana, perjalanan panjang, hingga akhirnya kembali menemukan rumah.</p><p>Siapa sangka, sebuah pertemuan sederhana di bangku sekolah justru menjadi awal dari perjalanan panjang kami?</p><p>Cerita ini bermula ketika kami masih duduk di kelas 2 SMK. Suatu hari, saat sedang berdiri di lantai dua sekolah, pandangan saya tertuju pada Dila yang berada di lantai bawah. Entah mengapa, ada sesuatu yang membuat saya terpana saat melihatnya dari kejauhan. Namun, saat itu saya hanya bisa mengaguminya dalam diam. Ada rasa ingin mengenalnya lebih dekat, tetapi keberanian untuk memulai percakapan belum juga datang.</p></div></div></div>
-<div class="book-page narrative-page" id="storyLeaf1" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 02</div><h3>Awal yang Tak Terduga</h3><div class="narrative-text"><p>Beberapa hari kemudian, justru dia yang lebih dahulu menghampiri saya untuk meminjam ponsel. Saat itu, Dila belum memiliki ponsel pribadi karena tinggal di asrama sekolah. Dari hal sederhana itulah, percakapan demi percakapan mulai terjalin. Tanpa disadari, kami semakin dekat.</p><p>Hingga suatu hari, kami pergi ke pantai bersama teman-teman lainnya. Di tengah suasana sederhana hari itu, saya semakin yakin bahwa perasaan yang tumbuh bukan sekadar rasa kagum biasa.</p></div></div></div>
-<div class="book-page narrative-page" id="storyLeaf2" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 03</div><h3>Awal yang Tak Terduga</h3><div class="narrative-text"><p>Keesokan harinya, saya memberanikan diri mengajaknya bertemu di Lapangan Imam Bonjol, Padang. Ajakan itu pun diterimanya. Hari yang telah dinantikan akhirnya tiba. Kami bertemu dengan perasaan yang sama-sama canggung, bahkan sempat terdiam cukup lama karena bingung harus memulai dari mana.</p><p>Namun, setelah mengumpulkan keberanian, akhirnya saya mengungkapkan perasaan yang selama ini disimpan. Dan ternyata, perasaan itu tidak bertepuk sebelah tangan. Dia menerimanya, dan sejak hari itulah kisah kami resmi dimulai.</p></div></div></div>
-<div class="book-page narrative-page" id="storyLeaf3" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 04</div><h3>Jarak yang Pernah Memisahkan</h3><div class="narrative-text"><p>Waktu terus berjalan hingga akhirnya kami menyelesaikan masa sekolah. Setelah lulus, jalan yang harus kami tempuh membawa kami ke tempat yang berbeda. Dila melanjutkan pendidikannya di Aceh, sementara saya memilih bekerja di Pekanbaru.</p><p>Hubungan jarak jauh pun menjadi bagian dari perjalanan kami. Hari demi hari dilalui dengan komunikasi dari kejauhan, menyimpan rindu di antara kesibukan masing-masing. Namun, seiring berjalannya waktu, jarak dan kesibukan perlahan mengubah keadaan. Hubungan yang dahulu begitu dekat mulai terasa renggang. Hingga pada suatu titik, kami sama-sama menghadapi kejenuhan dan akhirnya memutuskan untuk mengakhiri hubungan.</p><p>Meski kisah kami saat itu harus berhenti, ternyata tidak semua rasa ikut menghilang. Ada kenangan yang tetap tinggal, ada nama yang masih tersimpan, dan ada harapan kecil yang diam-diam masih saya jaga.</p></div></div></div>
-<div class="book-page narrative-page" id="storyLeaf4" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 05</div><h3>Dipertemukan Kembali</h3><div class="narrative-text"><p>Tahun-tahun berlalu. Saya kemudian pindah ke Batam untuk mencari pekerjaan dan membangun kehidupan yang lebih baik. Namun, di antara perjalanan baru yang saya jalani, ada satu hal yang masih sering hadir dalam ingatan: dirinya.</p><p>Jauh di dalam hati, masih tersimpan harapan untuk bisa kembali bertemu dan mengulang cerita yang dahulu pernah kami mulai.</p><p>Hingga suatu hari, ketika Dila sedang berada di semester akhir perkuliahannya, sebuah pesan darinya kembali hadir. Dia menghubungi saya dan mengajak bermain game bersama. Mungkin bagi orang lain itu hanyalah ajakan sederhana, tetapi bagi saya, rasanya begitu membahagiakan. Sesuatu yang selama ini hanya menjadi harapan dalam doa, perlahan kembali menemukan jalannya.</p></div></div></div>
+<div class="book-page narrative-page" id="storyLeaf0" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 01</div><h3>Berawal dari Bangku SMK</h3><div class="narrative-text"><p>Dari sebuah pertemuan sederhana, perjalanan panjang, hingga akhirnya kembali menemukan rumah.</p><p>Siapa sangka, sebuah pertemuan sederhana di bangku sekolah justru menjadi awal dari perjalanan panjang kami?</p><p>Cerita ini bermula ketika kami masih duduk di kelas 2 SMK. Suatu hari, saat sedang berdiri di lantai dua sekolah, pandangan saya tertuju pada Dila yang berada di lantai bawah. Entah mengapa, ada sesuatu yang membuat saya terpana saat melihatnya dari kejauhan. Namun, saat itu saya hanya bisa mengaguminya dalam diam. Ada rasa ingin mengenalnya lebih dekat, tetapi keberanian untuk memulai percakapan belum juga datang.</p></div></div></div>
+<div class="book-page narrative-page" id="storyLeaf1" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 02</div><h3>Sebuah Pertemuan Tak Terduga</h3><div class="narrative-text"><p>Beberapa hari kemudian, justru dia yang lebih dahulu menghampiri saya untuk meminjam ponsel. Saat itu, Dila belum memiliki ponsel pribadi karena tinggal di asrama sekolah. Dari hal sederhana itulah, percakapan demi percakapan mulai terjalin. Tanpa disadari, kami semakin dekat.</p><p>Hingga suatu hari, kami pergi ke pantai bersama teman-teman lainnya. Di tengah suasana sederhana hari itu, saya semakin yakin bahwa perasaan yang tumbuh bukan sekadar rasa kagum biasa.</p></div></div></div>
+<div class="book-page narrative-page" id="storyLeaf2" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 03</div><h3>Rasa yang Perlahan Tumbuh</h3><div class="narrative-text"><p>Keesokan harinya, saya memberanikan diri mengajaknya bertemu di Lapangan Imam Bonjol, Padang. Ajakan itu pun diterimanya. Hari yang telah dinantikan akhirnya tiba. Kami bertemu dengan perasaan yang sama-sama canggung, bahkan sempat terdiam cukup lama karena bingung harus memulai dari mana.</p><p>Namun, setelah mengumpulkan keberanian, akhirnya saya mengungkapkan perasaan yang selama ini disimpan. Dan ternyata, perasaan itu tidak bertepuk sebelah tangan. Dia menerimanya, dan sejak hari itulah kisah kami resmi dimulai.</p></div></div></div>
+<div class="book-page narrative-page" id="storyLeaf3" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 04</div><h3>Jarak yang Menguji</h3><div class="narrative-text"><p>Waktu terus berjalan hingga akhirnya kami menyelesaikan masa sekolah. Setelah lulus, jalan yang harus kami tempuh membawa kami ke tempat yang berbeda. Dila melanjutkan pendidikannya di Aceh, sementara saya memilih bekerja di Pekanbaru.</p><p>Hubungan jarak jauh pun menjadi bagian dari perjalanan kami. Hari demi hari dilalui dengan komunikasi dari kejauhan, menyimpan rindu di antara kesibukan masing-masing. Namun, seiring berjalannya waktu, jarak dan kesibukan perlahan mengubah keadaan. Hubungan yang dahulu begitu dekat mulai terasa renggang. Hingga pada suatu titik, kami sama-sama menghadapi kejenuhan dan akhirnya memutuskan untuk mengakhiri hubungan.</p><p>Meski kisah kami saat itu harus berhenti, ternyata tidak semua rasa ikut menghilang. Ada kenangan yang tetap tinggal, ada nama yang masih tersimpan, dan ada harapan kecil yang diam-diam masih saya jaga.</p></div></div></div>
+<div class="book-page narrative-page" id="storyLeaf4" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 05</div><h3>Jalan yang Sempat Berbeda</h3><div class="narrative-text"><p>Tahun-tahun berlalu. Saya kemudian pindah ke Batam untuk mencari pekerjaan dan membangun kehidupan yang lebih baik. Namun, di antara perjalanan baru yang saya jalani, ada satu hal yang masih sering hadir dalam ingatan: dirinya.</p><p>Jauh di dalam hati, masih tersimpan harapan untuk bisa kembali bertemu dan mengulang cerita yang dahulu pernah kami mulai.</p><p>Hingga suatu hari, ketika Dila sedang berada di semester akhir perkuliahannya, sebuah pesan darinya kembali hadir. Dia menghubungi saya dan mengajak bermain game bersama. Mungkin bagi orang lain itu hanyalah ajakan sederhana, tetapi bagi saya, rasanya begitu membahagiakan. Sesuatu yang selama ini hanya menjadi harapan dalam doa, perlahan kembali menemukan jalannya.</p></div></div></div>
 <div class="book-page narrative-page" id="storyLeaf5" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 06</div><h3>Dipertemukan Kembali</h3><div class="narrative-text"><p>Dari percakapan sederhana itu, komunikasi kami kembali terjalin. Hari demi hari, kami mulai dekat lagi. Perlahan, jarak yang dahulu memisahkan seolah tidak lagi terasa sama. Kami kembali saling mengenal, berbagi cerita, dan menemukan kenyamanan yang pernah ada.</p><p>Kali ini, saya tidak ingin hanya sekadar mengulang kisah lama. Saya ingin membawa hubungan ini menuju sesuatu yang lebih serius.</p></div></div></div>
-<div class="book-page narrative-page" id="storyLeaf6" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 07</div><h3>Memilih untuk Selamanya</h3><div class="narrative-text"><p>Dengan keyakinan yang semakin kuat, pada 23 April 2023, saya memutuskan untuk menemui kedua orang tuanya secara langsung. Saya datang membawa niat baik dan menyampaikan kesungguhan hati bahwa kali ini saya ingin menjadikan Dila sebagai pendamping hidup saya.</p><p>Syukur alhamdulillah, niat tersebut disambut dengan baik oleh kedua orang tuanya. Sebuah langkah yang membuat perjalanan kami semakin dekat menuju babak kehidupan yang baru.</p><p>Hingga akhirnya, pada 27 Maret 2026, saya kembali datang bersama keluarga untuk menyampaikan niat dan melamarnya secara resmi.</p></div></div></div>
-<div class="book-page narrative-page" id="storyLeaf7" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 08</div><h3>Memilih untuk Selamanya</h3><div class="narrative-text"><p>Bagi kami, hari itu bukan sekadar tentang sebuah lamaran, melainkan tentang perjalanan panjang yang akhirnya menemukan tujuannya. Dari tatapan sederhana di lantai dua sekolah, pertemuan canggung di Lapangan Imam Bonjol, jarak yang pernah memisahkan, hingga kesempatan kedua yang membawa kami kembali bersama.</p><p>Kami percaya, tidak semua perjalanan harus berjalan lurus untuk sampai pada tujuan. Ada kalanya dua orang perlu berjalan di jalan masing-masing sebelum akhirnya menyadari bahwa mereka ingin melangkah ke arah yang sama.</p></div></div></div>
+<div class="book-page narrative-page" id="storyLeaf6" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 07</div><h3>Kesungguhan yang Kembali Tumbuh</h3><div class="narrative-text"><p>Dengan keyakinan yang semakin kuat, pada 23 April 2023, saya memutuskan untuk menemui kedua orang tuanya secara langsung. Saya datang membawa niat baik dan menyampaikan kesungguhan hati bahwa kali ini saya ingin menjadikan Dila sebagai pendamping hidup saya.</p><p>Syukur alhamdulillah, niat tersebut disambut dengan baik oleh kedua orang tuanya. Sebuah langkah yang membuat perjalanan kami semakin dekat menuju babak kehidupan yang baru.</p><p>Hingga akhirnya, pada 27 Maret 2026, saya kembali datang bersama keluarga untuk menyampaikan niat dan melamarnya secara resmi.</p></div></div></div>
+<div class="book-page narrative-page" id="storyLeaf7" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 08</div><h3>Sebuah Lamaran dan Janji</h3><div class="narrative-text"><p>Bagi kami, hari itu bukan sekadar tentang sebuah lamaran, melainkan tentang perjalanan panjang yang akhirnya menemukan tujuannya. Dari tatapan sederhana di lantai dua sekolah, pertemuan canggung di Lapangan Imam Bonjol, jarak yang pernah memisahkan, hingga kesempatan kedua yang membawa kami kembali bersama.</p><p>Kami percaya, tidak semua perjalanan harus berjalan lurus untuk sampai pada tujuan. Ada kalanya dua orang perlu berjalan di jalan masing-masing sebelum akhirnya menyadari bahwa mereka ingin melangkah ke arah yang sama.</p></div></div></div>
 <div class="book-page narrative-page" id="storyLeaf8" hidden><div class="paper-content"><div class="eyebrow">Our Love Story · 09</div><h3>Memilih untuk Selamanya</h3><div class="narrative-text"><p>Dan kini, kami siap memulai perjalanan baru. Bukan lagi sebagai dua orang yang sekadar saling mencintai, tetapi sebagai dua hati yang memilih untuk saling menjaga, menerima, dan berjalan bersama dalam ikatan pernikahan.</p><p>Karena pada akhirnya, sejauh apa pun perjalanan membawa kami, hati ini selalu menemukan jalan untuk kembali.</p></div></div></div>
             <div class="book-page gratitude-page" id="lastChapter" hidden><div class="paper-content">
               <div class="story-copy">
@@ -316,10 +458,18 @@ Ibu Eva Susanti</p>
     </section>
 
     <section class="closing">
+      <div class="orn-layer" aria-hidden="true">
+        <div class="orn orn--band"><svg viewBox="0 0 620 80"><use href="#ornBand"/></svg></div>
+        <div class="orn orn--bl"><svg viewBox="0 0 240 240"><use href="#ornCorner"/></svg></div>
+      </div>
       <div class="wrap">
         
-        <h2>Terima kasih telah menjadi bagian dari cerita kami.</h2>
-        <p id="closingText">Kami tidak mengadakan resepsi maupun acara terbuka, dan akad nikah kami laksanakan dengan sederhana. Untuk itu, dengan kerendahan hati kami memohon maaf apabila tidak dapat mengundang Anda secara langsung. Pemberitahuan ini kami maksudkan sekadar sebagai kabar bahwa kami akan menikah. Doa baik dan harapan tulus dari Anda sudah lebih dari cukup bagi kami.</p>
+        <h2>Untuk Anda, yang telah membaca cerita kami.</h2>
+        <p id="closingText">Terima kasih telah meluangkan waktu untuk membaca cerita dan menerima kabar bahagia kami.
+
+Kami percaya bahwa kebahagiaan tidak selalu harus dirayakan dengan kehadiran. Doa, restu, dan ketulusan yang disampaikan dari kejauhan pun memiliki arti yang begitu besar bagi kami.
+
+Semoga setiap kebaikan yang Anda berikan kembali dalam bentuk kebahagiaan yang berlipat.</p>
         <p class="note" id="giftNote">Bila Anda berkenan menyampaikan tanda kasih, kami sertakan informasinya di bawah ini. Sungguh, hal itu tidak kami harapkan dan sama sekali bukan kewajiban — doa serta restu Anda jauh lebih berarti bagi kami.</p>
         <div class="bank">
           <div class="bank-top"><div><div class="bank-label" id="bankLabel">Tanda kasih · sepenuhnya pilihan Anda</div><div class="bank-name" id="bankName">Mandiri</div></div><div class="symbol">♡</div></div>
@@ -331,20 +481,51 @@ Ibu Eva Susanti</p>
       </div>
     </section>
     <section class="section wishes" aria-labelledby="wishesTitle">
+      <div class="orn-layer" aria-hidden="true">
+        <div class="orn orn--br orn--soft"><svg viewBox="0 0 120 120"><use href="#ornBud"/></svg></div>
+      </div>
       <div class="wrap" style="max-width:720px">
-        
-        <h2 class="section-heading" id="wishesTitle">Doa &amp; Ucapan</h2>
-        
-        <form id="wishForm">
-          <label for="wishName">Nama</label><input id="wishName" required minlength="2" maxlength="60" autocomplete="name">
-          <label for="wishMessage">Ucapan untuk kami</label><textarea id="wishMessage" required minlength="3" maxlength="1000" rows="4"></textarea>
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAGCBJkveueduFynO" data-action="wedding_wish" data-size="flexible" data-callback="turnstileSuccess" data-expired-callback="turnstileExpired" data-error-callback="turnstileError" data-timeout-callback="turnstileExpired"></div>
-          <p class="verify-note" id="turnstileNote" hidden><span class="tick" aria-hidden="true">✓</span> Verifikasi keamanan selesai</p>
-          <button class="open-invitation" id="wishSend" type="submit">Kirim ucapan ♡</button>
+        <div class="wishes-head">
+          <h2 class="wishes-title" id="wishesTitle">Words from the Heart</h2>
+          <p class="wishes-sub">Every wish is a beautiful part of our story.</p>
+        </div>
+
+        <form id="wishForm" class="wish-form-card" novalidate>
+          <div class="wg-field">
+            <div class="wg-label-row">
+              <label for="wishName">Nama</label>
+              <span class="wg-count" id="nameCount" aria-hidden="true">0/60</span>
+            </div>
+            <input id="wishName" name="name" type="text" maxlength="60" autocomplete="name" required aria-describedby="nameHelp">
+            <p class="wg-hint" id="nameHelp">Nama ini akan tampil bersama ucapan Anda.</p>
+          </div>
+
+          <div class="wg-field">
+            <div class="wg-label-row">
+              <label for="wishMessage">Ucapan dan doa</label>
+              <span class="wg-count" id="messageCount" aria-hidden="true">0/500</span>
+            </div>
+            <textarea id="wishMessage" name="message" rows="5" maxlength="500" required aria-describedby="messageHelp"></textarea>
+            <p class="wg-hint" id="messageHelp">Tulis doa atau ucapan terbaik Anda, maksimal 500 karakter.</p>
+          </div>
+
+          <div class="wg-field">
+            <span class="wg-field-label" id="turnstileLabel">Verifikasi keamanan</span>
+            <div class="cf-turnstile" data-sitekey="0x4AAAAAAGCBJkveueduFynO" data-action="wedding_wish" data-size="flexible" data-callback="turnstileSuccess" data-expired-callback="turnstileExpired" data-error-callback="turnstileError" data-timeout-callback="turnstileExpired"></div>
+            <p class="verify-note" id="turnstileNote" hidden><span class="tick" aria-hidden="true">✓</span> Verifikasi keamanan selesai</p>
+          </div>
+
+          <button class="open-invitation" id="wishSend" type="submit"><span id="wishSendLabel">Kirim Ucapan</span></button>
         </form>
-        <p id="wishStatus" role="status">Menghubungkan buku tamu…</p>
-        <div id="wishList" aria-label="Ucapan terbaru"></div>
-        <button id="wishRefresh" class="copy" type="button">Muat ulang ucapan</button>
+
+        <p class="wg-status" id="wishStatus" role="status" aria-live="polite">Menghubungkan buku tamu…</p>
+
+        <div class="wishes-list-head">
+          <h3 class="wishes-list-title">Ucapan terbaru <span class="wg-count" id="wishCount" aria-live="polite"></span></h3>
+          <button id="wishRefresh" class="copy" type="button">Muat ulang</button>
+        </div>
+        <ul class="wish-list" id="wishList" aria-label="Ucapan terbaru"></ul>
+        <div class="wg-more"><button id="wishMore" class="copy" type="button" hidden>Muat ucapan lainnya</button></div>
       </div>
     </section>
   </main>
@@ -361,18 +542,16 @@ Ibu Eva Susanti</p>
       nameTwo: "Farah Dila Oktavia",
       parentsOne: "Bapak Damsismar\nIbu Desmawati (Almh)",
       parentsTwo: "Bapak Wendri\nIbu Eva Susanti",
-      dateShort: "Jum'at · 27 November 2026",
-      dateLong: "Jum'at, 27 November 2026",
+      dateShort: "Jumat · 27 November 2026",
+      dateLong: "Jumat, 27 November 2026",
       time: "08.00 – 10.00 WIB",
       venue: "Masjid Jabal Arafah",
       address: "Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau",
       venueMap: "https://www.google.com/maps/search/?api=1&query=Masjid+Jabal+Arafah+Lubuk+Baja+Batam",
-      heroMessage: "Dengan penuh rasa syukur, kami memberitahukan bahwa kami akan melangsungkan pernikahan. Bukan undangan terbuka, hanya kabar bahagia untuk orang-orang yang kami sayangi.",
-      announcement: "Dengan penuh rasa syukur, kami memberitahukan bahwa kami akan melangsungkan akad nikah pada Jum'at, 27 November 2026, pukul 08.00 – 10.00 WIB di Masjid Jabal Arafah, Lubuk Baja, Kota Batam. Kami tidak mengadakan resepsi maupun acara terbuka. Untuk itu, dengan kerendahan hati kami memohon maaf apabila tidak dapat mengundang secara langsung. Pemberitahuan ini kami sampaikan bukan sebagai undangan, melainkan sekadar kabar bahwa kami akan menikah. Doa dari jauh sudah lebih dari cukup bagi kami.",
-      privateNote: "Pemberitahuan ini bukan undangan resmi, melainkan sekadar kabar bahwa kami akan menikah. Akad nikah kami laksanakan secara sederhana; kami mohon maaf apabila tidak dapat mengundang lebih luas.",
+      heroMessage: "Dengan penuh rasa syukur, kami ingin membagikan kabar bahagia tentang perjalanan kami yang kini memasuki babak baru.\n\nKami, Zulfajri Surya dan Farah Dila Oktavia, akan melangsungkan akad nikah pada Jumat, 27 November 2026.\n\nHalaman ini kami hadirkan sebagai pemberitahuan kabar bahagia, bukan undangan terbuka untuk menghadiri acara. Tidak ada kewajiban untuk hadir; doa dan perhatian dari mana pun sudah sangat berarti bagi kami.",
       storyText: "Perjalanan ini membawa kami pada satu keputusan indah: berjalan berdampingan, saling menjaga, dan bertumbuh bersama. Kami memilih merayakannya dengan sederhana, dekat dengan keluarga, dan penuh rasa syukur.",
       quote: "“Pada akhirnya, rumah adalah seseorang yang ingin kita tuju, setiap hari.”",
-      closingText: "Kami tidak mengadakan resepsi maupun acara terbuka, dan akad nikah kami laksanakan dengan sederhana. Untuk itu, dengan kerendahan hati kami memohon maaf apabila tidak dapat mengundang Anda secara langsung. Pemberitahuan ini kami maksudkan sekadar sebagai kabar bahwa kami akan menikah. Doa baik dan harapan tulus dari Anda sudah lebih dari cukup bagi kami.",
+      closingText: "Terima kasih telah meluangkan waktu untuk membaca cerita dan menerima kabar bahagia kami.\n\nKami percaya bahwa kebahagiaan tidak selalu harus dirayakan dengan kehadiran. Doa, restu, dan ketulusan yang disampaikan dari kejauhan pun memiliki arti yang begitu besar bagi kami.\n\nSemoga setiap kebaikan yang Anda berikan kembali dalam bentuk kebahagiaan yang berlipat.",
       giftNote: "Bila Anda berkenan menyampaikan tanda kasih, kami sertakan informasinya di bawah ini. Sungguh, hal itu tidak kami harapkan dan sama sekali bukan kewajiban — doa serta restu Anda jauh lebih berarti bagi kami.",
       bankLabel: "Tanda kasih · sepenuhnya pilihan Anda",
       bankName: "Mandiri",
@@ -383,7 +562,7 @@ Ibu Eva Susanti</p>
       storyPhoto: "foto favorit.jpg",
       footerText: "A new chapter begins · 2026"
     };
-    const fields = ["nameOne","nameTwo","parentsOne","parentsTwo","dateShort","dateLong","time","venue","address","heroMessage","announcement","privateNote","storyText","quote","closingText","giftNote","bankLabel","bankName","accountNumber","accountOwner","footerText"];
+    const fields = ["nameOne","nameTwo","parentsOne","parentsTwo","dateShort","dateLong","time","venue","address","heroMessage","storyText","quote","closingText","giftNote","bankLabel","bankName","accountNumber","accountOwner","footerText"];
     fields.forEach(key => { const el=document.getElementById(key === "dateShort" ? "heroDate" : key === "dateLong" ? "detailDate" : key); if(el) el.textContent=wedding[key]; });
     document.getElementById("detailTime").textContent=wedding.time;
     document.getElementById("venueMapLink").href=wedding.venueMap;
@@ -574,6 +753,47 @@ Ibu Eva Susanti</p>
         window.scrollTo({top:0,behavior:'instant'});
         window.dispatchEvent(new Event('resize'));
       });
+    })();
+    // Countdown akad nikah: waktu absolut dengan offset +07:00 (WIB), tanpa parsing lokal.
+    (() => {
+      const START = Date.parse('2026-11-27T08:00:00+07:00');
+      const END = Date.parse('2026-11-27T10:00:00+07:00');
+      const box = document.getElementById('countdown');
+      if (!box || !Number.isFinite(START) || !Number.isFinite(END) || START >= END) return;
+      const state = document.getElementById('cdState');
+      const cell = {
+        days: document.getElementById('cdDays'),
+        hours: document.getElementById('cdHours'),
+        minutes: document.getElementById('cdMinutes'),
+        seconds: document.getElementById('cdSeconds')
+      };
+      if (!state || !cell.days || !cell.hours || !cell.minutes || !cell.seconds) return;
+      const pad = n => String(n).padStart(2, '0');
+      const MSG_LIVE = 'Akad nikah sedang berlangsung.';
+      const MSG_DONE = 'Alhamdulillah, hari bahagia telah terlaksana. Terima kasih atas doa dan perhatian yang diberikan.';
+      function render(now) {
+        if (now >= END) { box.classList.add('is-done'); if (state.textContent !== MSG_DONE) state.textContent = MSG_DONE; return false; }
+        if (now >= START) { box.classList.add('is-done'); if (state.textContent !== MSG_LIVE) state.textContent = MSG_LIVE; return false; }
+        box.classList.remove('is-done');
+        if (state.textContent) state.textContent = '';
+        let left = Math.max(0, START - now);
+        const days = Math.floor(left / 86400000); left -= days * 86400000;
+        const hours = Math.floor(left / 3600000); left -= hours * 3600000;
+        const minutes = Math.floor(left / 60000); left -= minutes * 60000;
+        const seconds = Math.floor(left / 1000);
+        cell.days.textContent = pad(days);
+        cell.hours.textContent = pad(hours);
+        cell.minutes.textContent = pad(minutes);
+        cell.seconds.textContent = pad(seconds);
+        return true;
+      }
+      // Hook bantu pengujian ketiga status; tidak dipakai antarmuka.
+      window.__countdownRender = render;
+      const timer = setInterval(() => {
+        if (document.hidden) return;
+        if (!render(Date.now())) clearInterval(timer);
+      }, 1000);
+      render(Date.now());
     })();
   </script>  
 <noscript><style>#invitationContent[hidden],#footerText[hidden]{display:block!important}.open-invitation,.cover-caption,#calendarLink{display:none}</style><p>Aktifkan JavaScript untuk musik dan buku interaktif.</p></noscript>
