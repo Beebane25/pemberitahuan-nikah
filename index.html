@@ -148,6 +148,14 @@
       .couple-name{font-size:.88rem;letter-spacing:-.01em}
       .couple-parents{font-size:.7rem}
     }
+    /* Tautan lokasi pada kartu detail (akad & syukuran). */
+    .detail{display:flex;flex-direction:column}
+    .detail small{margin-bottom:12px}
+    .detail-link{display:inline-flex;align-items:center;gap:6px;align-self:center;margin-top:auto;padding:7px 13px;border:1px solid #cfe8f4;border-radius:30px;background:#f4fbff;color:#1d6f96;font:600 .76rem var(--sans);text-decoration:none;transition:background .2s,transform .2s}
+    .detail-link:hover{background:#e6f6ff;transform:translateY(-1px)}
+    .detail-link:focus-visible{outline:3px solid #2786b5;outline-offset:3px}
+    .detail-link span[aria-hidden]{font-size:.9em;line-height:1}
+    .detail small + small{margin-top:4px}
   </style>
   <link rel="icon" type="image/png" href="gambar%20pembuka.png">
   <link rel="apple-touch-icon" href="gambar%20pembuka.png">
@@ -159,7 +167,7 @@
     <div class="wrap hero-inner">
       
       <h1>We said <em>yes</em>,<br>to forever.</h1>
-      <p class="hero-sub" id="heroMessage">Dengan penuh rasa syukur, kami ingin berbagi kabar bahagia tentang perjalanan baru yang telah kami mulai.</p>
+      <p class="hero-sub" id="heroMessage">Dengan penuh rasa syukur, kami memberitahukan bahwa kami akan melangsungkan pernikahan. Bukan undangan terbuka, hanya kabar bahagia untuk orang-orang yang kami sayangi.</p>
       <div class="photo-pair">
         <div class="couple-col">
           <div class="photo"><img id="photoOne" src="" alt="Foto Zulfajri Surya" hidden><div class="placeholder" id="placeholderOne"></div></div>
@@ -188,7 +196,7 @@ Ibu Eva Susanti</p>
         
         <img src="gambar%20pembuka.png" alt="Ilustrasi pasangan pengantin berpelukan" style="display:block;width:min(300px,80%);height:auto;margin:24px auto 28px" loading="lazy">
         <h2 class="serif">Sebuah kabar, dari hati kami.</h2>
-        <p id="announcement">Dengan bahagia, kami ingin mengabarkan bahwa kami telah resmi mengikat janji dalam ikatan pernikahan. Hari istimewa ini kami rayakan secara intimate bersama keluarga dan orang-orang terdekat. Meski sederhana, doa dan kebahagiaan dari Anda tetap berarti bagi kami.</p>
+        <p id="announcement">Dengan bahagia, kami memberitahukan bahwa kami akan melangsungkan akad nikah pada Jum'at, 27 November 2027, lalu mengadakan syukuran sederhana di kediaman keluarga. Kami tidak mengadakan resepsi. Karena tempat sangat terbatas, kehadiran tidak kami wajibkan — kabar ini kami sampaikan supaya Anda tahu, dan bila berkenan hadir kami akan sangat senang. Doa dari jauh pun sudah lebih dari cukup bagi kami.</p>
       </div>
     </section>
 
@@ -200,11 +208,11 @@ Ibu Eva Susanti</p>
           <p>Beberapa detail kecil tentang hari bahagia kami.</p>
         </div>
         <div class="details-grid">
-          <article class="detail"><div class="symbol">◷</div><h3>Tanggal</h3><p id="detailDate">Jum'at, 27 November 2027</p><small id="detailTime">09:00 WIB</small></article>
-          <article class="detail"><div class="symbol">⌖</div><h3>Tempat</h3><p id="venue">Mesjid Jabal Arafah</p><small id="address">Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau</small></article>
-          <article class="detail"><div class="symbol">♡</div><h3>Perayaan</h3><p id="ceremony">Akad & intimate celebration</p><small id="attendees">Bersama keluarga dan orang terdekat</small></article>
+          <article class="detail"><div class="symbol">◷</div><h3>Tanggal</h3><p id="detailDate">Jum'at, 27 November 2027</p><small id="detailTime">08.00 – 10.00 WIB</small><small id="syukuranTime">20.00 WIB – selesai</small><a class="detail-link" id="calendarLink" href="#" target="_blank" rel="noopener">Tambah ke kalender <span aria-hidden="true">↗</span></a></article>
+          <article class="detail"><div class="symbol">⌖</div><h3>Akad Nikah</h3><p id="venue">Mesjid Jabal Arafah</p><small id="address">Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau</small><a class="detail-link" id="venueMapLink" href="https://www.google.com/maps/search/?api=1&amp;query=Masjid+Jabal+Arafah+Lubuk+Baja+Batam" target="_blank" rel="noopener">Lihat lokasi akad <span aria-hidden="true">↗</span></a></article>
+          <article class="detail"><div class="symbol">♡</div><h3>Syukuran</h3><p id="syukuranPlace">Kediaman Keluarga</p><small id="syukuranAddress">Sei Tering 2 Melcem Atas, Blok B No. 84, RT.2/RW.5, Tanjung Sengkuang, Batu Ampar (Sei Tering 2 B-84), Kota Batam, Kepulauan Riau</small><a class="detail-link" id="syukuranMapLink" href="https://www.google.com/maps/search/?api=1&amp;query=Sei+Tering+2+Blok+B+No+84+Tanjung+Sengkuang+Batu+Ampar+Batam" target="_blank" rel="noopener">Lihat lokasi syukuran <span aria-hidden="true">↗</span></a></article>
         </div>
-        <p class="note" id="privateNote">Momen ini kami rayakan secara tertutup dalam lingkup keluarga dan orang-orang terdekat.</p>
+        <p class="note" id="privateNote">Pemberitahuan ini bukan undangan resmi. Acara berlangsung sederhana dan terbatas; silakan hadir jika memungkinkan, dan doa dari jauh sama-sama kami hargai.</p>
       </div>
     </section>
 
@@ -258,7 +266,7 @@ Ibu Eva Susanti</p>
       <div class="wrap">
         
         <h2>Terima kasih telah menjadi bagian dari cerita kami.</h2>
-        <p id="closingText">Kami tidak mengadakan undangan terbuka, tetapi ingin membagikan kabar bahagia ini kepada orang-orang yang berarti dalam hidup kami. Doa baik dan harapan tulus dari Anda akan menjadi hadiah yang sangat berharga.</p>
+        <p id="closingText">Kami tidak mengadakan resepsi maupun undangan terbuka, hanya ingin memberitahukan kabar bahagia ini kepada orang-orang yang berarti dalam hidup kami. Karena tempat terbatas, mohon tidak merasa terbebani untuk hadir. Doa baik dan harapan tulus dari Anda akan menjadi hadiah yang sangat berharga.</p>
         <div class="bank">
           <div class="bank-top"><div><div class="bank-label">A little wedding gift · optional</div><div class="bank-name" id="bankName">Mandiri</div></div><div class="symbol">♡</div></div>
           <div class="bank-number" id="accountNumber">1090020727244</div>
@@ -300,17 +308,20 @@ Ibu Eva Susanti</p>
       parentsTwo: "Bapak Wendri\nIbu Eva Susanti",
       dateShort: "Jum'at · 27 November 2027",
       dateLong: "Jum'at, 27 November 2027",
-      time: "09:00 WIB",
+      time: "08.00 – 10.00 WIB",
+      syukuranTime: "20.00 WIB – selesai",
       venue: "Mesjid Jabal Arafah",
       address: "Lubuk Baja Kota, Kec. Lubuk Baja, Kota Batam, Kepulauan Riau",
-      ceremony: "Akad & intimate celebration",
-      attendees: "Bersama keluarga dan orang terdekat",
-      heroMessage: "Dengan penuh rasa syukur, kami ingin berbagi kabar bahagia tentang perjalanan baru yang telah kami mulai.",
-      announcement: "Dengan bahagia, kami ingin mengabarkan bahwa kami telah resmi mengikat janji dalam ikatan pernikahan. Hari istimewa ini kami rayakan secara intimate bersama keluarga dan orang-orang terdekat. Meski sederhana, doa dan kebahagiaan dari Anda tetap berarti bagi kami.",
-      privateNote: "Momen ini kami rayakan secara tertutup dalam lingkup keluarga dan orang-orang terdekat.",
+      venueMap: "https://www.google.com/maps/search/?api=1&query=Masjid+Jabal+Arafah+Lubuk+Baja+Batam",
+      syukuranPlace: "Kediaman Keluarga",
+      syukuranAddress: "Sei Tering 2 Melcem Atas, Blok B No. 84, RT.2/RW.5, Tanjung Sengkuang, Batu Ampar (Sei Tering 2 B-84), Kota Batam, Kepulauan Riau",
+      syukuranMap: "https://www.google.com/maps/search/?api=1&query=Sei+Tering+2+Blok+B+No+84+Tanjung+Sengkuang+Batu+Ampar+Batam",
+      heroMessage: "Dengan penuh rasa syukur, kami memberitahukan bahwa kami akan melangsungkan pernikahan. Bukan undangan terbuka, hanya kabar bahagia untuk orang-orang yang kami sayangi.",
+      announcement: "Dengan bahagia, kami memberitahukan bahwa kami akan melangsungkan akad nikah pada Jum'at, 27 November 2027, lalu mengadakan syukuran sederhana di kediaman keluarga. Kami tidak mengadakan resepsi. Karena tempat sangat terbatas, kehadiran tidak kami wajibkan — kabar ini kami sampaikan supaya Anda tahu, dan bila berkenan hadir kami akan sangat senang. Doa dari jauh pun sudah lebih dari cukup bagi kami.",
+      privateNote: "Pemberitahuan ini bukan undangan resmi. Acara berlangsung sederhana dan terbatas; silakan hadir jika memungkinkan, dan doa dari jauh sama-sama kami hargai.",
       storyText: "Perjalanan ini membawa kami pada satu keputusan indah: berjalan berdampingan, saling menjaga, dan bertumbuh bersama. Kami memilih merayakannya dengan sederhana, dekat dengan keluarga, dan penuh rasa syukur.",
       quote: "“Pada akhirnya, rumah adalah seseorang yang ingin kita tuju, setiap hari.”",
-      closingText: "Kami tidak mengadakan undangan terbuka, tetapi ingin membagikan kabar bahagia ini kepada orang-orang yang berarti dalam hidup kami. Doa baik dan harapan tulus dari Anda akan menjadi hadiah yang sangat berharga.",
+      closingText: "Kami tidak mengadakan resepsi maupun undangan terbuka, hanya ingin memberitahukan kabar bahagia ini kepada orang-orang yang berarti dalam hidup kami. Karena tempat terbatas, mohon tidak merasa terbebani untuk hadir. Doa baik dan harapan tulus dari Anda akan menjadi hadiah yang sangat berharga.",
       bankName: "Mandiri",
       accountNumber: "1090020727244",
       accountOwner: "a.n. ZULFAJRI SURYA",
@@ -319,9 +330,23 @@ Ibu Eva Susanti</p>
       storyPhoto: "foto favorit.jpg",
       footerText: "A new chapter begins · 2027"
     };
-    const fields = ["nameOne","nameTwo","parentsOne","parentsTwo","dateShort","dateLong","time","venue","address","ceremony","attendees","heroMessage","announcement","privateNote","storyText","quote","closingText","bankName","accountNumber","accountOwner","footerText"];
+    const fields = ["nameOne","nameTwo","parentsOne","parentsTwo","dateShort","dateLong","time","syukuranTime","venue","address","syukuranPlace","syukuranAddress","heroMessage","announcement","privateNote","storyText","quote","closingText","bankName","accountNumber","accountOwner","footerText"];
     fields.forEach(key => { const el=document.getElementById(key === "dateShort" ? "heroDate" : key === "dateLong" ? "detailDate" : key); if(el) el.textContent=wedding[key]; });
     document.getElementById("detailTime").textContent=wedding.time;
+    document.getElementById("syukuranTime").textContent=wedding.syukuranTime;
+    document.getElementById("venueMapLink").href=wedding.venueMap;
+    document.getElementById("syukuranMapLink").href=wedding.syukuranMap;
+    // Tombol "Tambah ke kalender" untuk akad (08.00–10.00 WIB = 01.00–03.00 UTC).
+    (() => {
+      const q=new URLSearchParams({
+        action:"TEMPLATE",
+        text:`Akad Nikah ${wedding.nameOne} & ${wedding.nameTwo}`,
+        dates:"20271127T010000Z/20271127T030000Z",
+        location:`${wedding.venue}, ${wedding.address}`,
+        details:`Akad nikah ${wedding.time}. Syukuran ${wedding.syukuranTime} di ${wedding.syukuranAddress}.`
+      });
+      document.getElementById("calendarLink").href="https://calendar.google.com/calendar/render?"+q.toString();
+    })();
     document.getElementById("finalThanks").textContent=`Dengan kasih, ${wedding.nameOne} & ${wedding.nameTwo}`;
     function setPhoto(id, placeholderId, src){ if(!src) return; const img=document.getElementById(id); img.src=src; img.hidden=false; const placeholder=document.getElementById(placeholderId); if(placeholder) placeholder.hidden=true; }
     setPhoto("photoOne","placeholderOne",wedding.photoOne);
@@ -471,7 +496,7 @@ Ibu Eva Susanti</p>
       });
     })();
   </script>  
-<noscript><style>#invitationContent[hidden],#footerText[hidden]{display:block!important}.open-invitation,.cover-caption{display:none}</style><p>Aktifkan JavaScript untuk musik dan buku interaktif.</p></noscript>
+<noscript><style>#invitationContent[hidden],#footerText[hidden]{display:block!important}.open-invitation,.cover-caption,#calendarLink{display:none}</style><p>Aktifkan JavaScript untuk musik dan buku interaktif.</p></noscript>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.49.8/dist/umd/supabase.js" defer></script>
 <script src="guestbook.js" defer></script>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
