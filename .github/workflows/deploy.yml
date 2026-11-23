@@ -1,0 +1,72 @@
+name: Deploy ke Cloudflare
+
+# Setiap push ke main -> situs live ikut berubah.
+# Butuh 1 secret di repo: CLOUDFLARE_API_TOKEN
+#   Permission: Account -> Cloudflare Pages: Edit, Workers Scripts: Edit
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: true
+
+env:
+  CLOUDFLARE_ACCOUNT_ID: 129c0648f957bd84a82642a46882d243
+
+jobs:
+  deploy:
+    name: Build + deploy Pages dan Worker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cek secret
+        id: cek
+        env:
+          TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::notice title=Deploy dilewati::CLOUDFLARE_API_TOKEN belum diisi di Settings > Secrets and variables > Actions"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout
+        if: steps.cek.outputs.skip == 'false'
+        uses: actions/checkout@v4
+
+      - name: Node 20
+        if: steps.cek.outputs.skip == 'false'
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      # public/ di-.gitignore, jadi harus dihasilkan di runner
+      - name: Build public/
+        if: steps.cek.outputs.skip == 'false'
+        run: node build.mjs
+
+      - name: Deploy halaman (Pages + functions/api)
+        if: steps.cek.outputs.skip == 'false'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy public --project-name=pemberitahuan-nikah --branch=main --commit-dirty=true
+
+      - name: Deploy Worker API
+        if: steps.cek.outputs.skip == 'false'
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+          command: deploy
+
+      - name: Cek situs live
+        if: steps.cek.outputs.skip == 'false'
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' https://pemberitahuan-nikah.pages.dev/)
+          echo "HTTP $code"
+          test "$code" = "200"
