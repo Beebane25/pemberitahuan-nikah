@@ -32,7 +32,7 @@
       const result=await response.json();if(!response.ok)throw new Error(result.message||'Ucapan belum tersimpan.');
       form.reset();await load();status.textContent='Terima kasih, ucapan Anda sudah tersimpan ♡';
     }catch(error){status.textContent=error.message||'Ucapan belum tersimpan. Periksa koneksi lalu coba lagi.';}
-    finally{send.disabled=false;if(window.turnstile)window.turnstile.reset();}
+    finally{send.disabled=false;if(window.turnstile)window.turnstile.reset();if(window.turnstileSetVerified)window.turnstileSetVerified(false);}
   });
   document.getElementById('wishRefresh').addEventListener('click',load);
   db.channel('public-wishes').on('postgres_changes',{event:'*',schema:'public',table:'wedding_wishes'},load).subscribe(state=>{if(state==='SUBSCRIBED')load();});

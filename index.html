@@ -4,6 +4,36 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f8fcfd" />
+  <script>
+    /* Turnstile: begitu verifikasi berhasil (centang), kotaknya diciutkan
+       dan diganti catatan kecil. Muncul lagi kalau token kedaluwarsa/reset. */
+    (function(){
+      function kotak(){return document.querySelector('.wishes .cf-turnstile');}
+      function catatan(){return document.getElementById('turnstileNote');}
+      window.turnstileSetVerified=function(aktif){
+        var w=kotak(); if(!w) return;
+        var n=catatan();
+        if(aktif){
+          w.style.height=w.offsetHeight+'px';
+          w.offsetHeight;                 /* paksa reflow agar transisi jalan */
+          w.classList.add('is-done');
+          w.style.height='0px';
+          w.setAttribute('aria-hidden','true');
+          if('inert' in w) w.inert=true;
+          if(n) n.hidden=false;
+        }else{
+          w.classList.remove('is-done');
+          w.style.height='';
+          w.setAttribute('aria-hidden','false');
+          if('inert' in w) w.inert=false;
+          if(n) n.hidden=true;
+        }
+      };
+      window.turnstileSuccess=function(){window.turnstileSetVerified(true);};
+      window.turnstileExpired=function(){window.turnstileSetVerified(false);};
+      window.turnstileError=function(){window.turnstileSetVerified(false);};
+    })();
+  </script>
   <meta name="description" content="Sebuah kabar bahagia tentang hari pernikahan kami." />
   <title>Kabar Bahagia — Pernikahan</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -156,6 +186,11 @@
     .detail-link:focus-visible{outline:3px solid #2786b5;outline-offset:3px}
     .detail-link span[aria-hidden]{font-size:.9em;line-height:1}
     .detail small + small{margin-top:4px}
+    /* Turnstile: ciut mulus setelah verifikasi berhasil. */
+    .wishes .cf-turnstile{overflow:hidden;transition:height .35s cubic-bezier(.3,.9,.3,1),opacity .3s ease,margin-top .35s ease}
+    .wishes .cf-turnstile.is-done{opacity:0;pointer-events:none;margin-top:0}
+    .verify-note{display:flex;align-items:center;gap:8px;margin:16px 0 0;font-size:.82rem;color:#2c7a53}
+    .verify-note .tick{display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#d7f2e2;color:#1f7a4a;font-size:.75rem;font-weight:700}
   </style>
   <link rel="icon" type="image/png" href="gambar%20pembuka.png">
   <link rel="apple-touch-icon" href="gambar%20pembuka.png">
@@ -284,7 +319,8 @@ Ibu Eva Susanti</p>
         <form id="wishForm">
           <label for="wishName">Nama</label><input id="wishName" required minlength="2" maxlength="60" autocomplete="name">
           <label for="wishMessage">Ucapan untuk kami</label><textarea id="wishMessage" required minlength="3" maxlength="1000" rows="4"></textarea>
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAGCBJkveueduFynO" data-action="wedding_wish" data-size="flexible"></div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAGCBJkveueduFynO" data-action="wedding_wish" data-size="flexible" data-callback="turnstileSuccess" data-expired-callback="turnstileExpired" data-error-callback="turnstileError" data-timeout-callback="turnstileExpired"></div>
+          <p class="verify-note" id="turnstileNote" hidden><span class="tick" aria-hidden="true">✓</span> Verifikasi keamanan selesai</p>
           <button class="open-invitation" id="wishSend" type="submit">Kirim ucapan ♡</button>
         </form>
         <p id="wishStatus" role="status">Menghubungkan buku tamu…</p>
